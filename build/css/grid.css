@@ -1,0 +1,50 @@
+.grid-left-bar {
+  /* Make the left sidebar scrollable when exceeds the max height*/
+  overflow: hidden;
+  border: 1px solid #CCCCCC;
+
+}
+
+.grid-left-bar .inner{
+  overflow: auto;
+  height: 700px;
+}
+
+.left-bar-head {
+  background-color: #CCCCCC;
+  text-align: center;
+}
+
+.left-bar-item {
+  margin: 20px 0;
+}
+
+.img-left-bar {
+  margin: 0 auto;
+}
+
+.grid-main {
+  height: 700px;
+  border: 1px solid #000000;
+  text-align: center;
+}
+
+.grid-right-bar {
+  height: 700px;
+  border: 1px solid #000000;
+  text-align: center;
+}
+
+body {
+  padding-top: 60px;
+  background-color: #e9eaed;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.navbar {
+  background-color: purple;
+}
