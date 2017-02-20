@@ -1,0 +1,38 @@
+.editable-card-front{
+	height:480px;
+	background:blue;
+}
+.editable-card-back{
+	height:480px;
+	background:orange;
+}
+.editable-card-side-title{
+	text-align:center;
+	font-size:24px;
+}
+.preview-card{
+	height:64px;
+	width:96px;
+	background:purple;
+	margin:8px;
+	display:inline-block;
+}
+.preview-card:first-child{
+	margin:8px 0px;
+}
+.preview-card:last-child{
+	margin:8px 0px;
+}
+.card-slider{
+	margin:8px;
+}
+.horizontal-flex{
+	display:flex;
+	flex-direction:horizontal;
+}
+.card-editing-buttons{
+	flex:1;
+	height:48px;
+	margin:8px;
+	border-radius:4px;
+}
