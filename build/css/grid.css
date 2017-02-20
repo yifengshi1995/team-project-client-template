@@ -1,13 +1,11 @@
 .grid-left-bar {
   /* Make the left sidebar scrollable when exceeds the max height*/
-  overflow: hidden;
   border: 1px solid #CCCCCC;
-
 }
 
-.grid-left-bar .inner{
+.grid-left-bar .scrollable-list{
   overflow: auto;
-  height: 700px;
+  height: 640px;
 }
 
 .left-bar-head {
@@ -25,8 +23,61 @@
 
 .grid-main {
   height: 700px;
-  border: 1px solid #000000;
+}
+
+.card {
+  padding-left: 5px;
+  padding-top: 40px;
+  float: left;
+  margin: 20px;
+}
+
+.card-front, .card-back {
+	border-radius: 10px;
+	transition: -webkit-transform 1s;
+	-webkit-transform-style: preserve-3d;
+	-webkit-backface-visibility: hidden;
+	border: 1px solid black;
+}
+
+.card-front {
+  overflow: hidden;
   text-align: center;
+  line-height: 252px;
+  font-size: 20px;
+  background-color: #AA0000;
+  width: 180px;
+  height: 252px;
+  position: absolute;
+	z-index: 1;
+}
+
+.card-back {
+  overflow: hidden;
+  text-align: center;
+  line-height: 252px;
+  font-size: 20px;
+  background-color: #00AA00;
+  width: 180px;
+  height: 252px;
+  -webkit-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+}
+
+.card:hover .card-back {
+  -webkit-transform: rotateY(0);
+  -ms-transform: rotateY(0);
+  -o-transform: rotateY(0);
+  -moz-transform: rotateY(0);
+}
+
+.card:hover .card-front {
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
 }
 
 .grid-right-bar {
