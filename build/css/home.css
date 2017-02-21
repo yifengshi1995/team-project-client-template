@@ -5,6 +5,10 @@
   border: solid gray;
 }
 
+.home-box > a{
+  color: purple !important;
+}
+
 .quote{
   margin-top: 30px;
   padding: 20px;
@@ -24,6 +28,7 @@
   border-bottom: solid gray 2px;
   font-size: 200%;
   text-align: center;
+  padding-top: 20px;
 }
 
 .profile-picture{
@@ -33,6 +38,10 @@
 .stats{
   border-bottom: solid gray 2px;
   font-size: 150%;
+}
+
+.main-home-section{
+  padding-right: 30px;
 }
 
 ul{
@@ -46,8 +55,8 @@ ul{
 }
 
 .left-bar li a{
-  color: purple;
-  background-color: #d9dbe0;
+  color: purple !important;
+  background-color: #d9dbe0 !important;
 }
 
 /* Purple background */
@@ -113,10 +122,6 @@ ul{
 body {
   padding-top: 60px;
   background-color: #e9eaed;
-}
-
-.fb-search {
-  width: 395px !important;
 }
 
 .right-sidebar {
