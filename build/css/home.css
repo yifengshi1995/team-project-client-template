@@ -6,7 +6,14 @@
 }
 
 .home-box > a{
-  color: purple !important;
+  /*color: purple !important;*/
+  color: #770053 !important;
+}
+
+.row-stats{
+  text-align: center;
+  padding-top: 10px;
+  font-size: 125%;
 }
 
 .quote{
@@ -46,6 +53,7 @@
 
 ul{
   list-style-type: none;
+  padding-left: 0;
 }
 
 .left-bar-head{
@@ -55,13 +63,15 @@ ul{
 }
 
 .left-bar li a{
-  color: purple !important;
+  /*color: purple !important;*/
+  color: #770053 !important;
   background-color: #d9dbe0 !important;
 }
 
-/* Purple background */
+/*  navbar background */
 .navbar {
-  background-color: purple;
+  /*background-color: purple;*/
+  background-color: #770053;
 }
 
 /* Make grid logo white, even if the user hovers over it */
