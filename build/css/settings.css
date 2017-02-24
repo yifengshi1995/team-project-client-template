@@ -206,9 +206,11 @@ body {
 /* Fix background, text, and border of right sidebar. */
 .fb-right-sidebar {
   /* Gray text. This is the same color Facebook uses. */
-  color: #9197a3;
+  /*color: #9197a3;*/
+  color: #000000;
   border: 1px solid lightgrey;
   background-color: white;
+  padding-top: 20px;
   padding-bottom: 10px;
 }
 /* Make the birthday icon look more Facebookey.
