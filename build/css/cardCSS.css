@@ -1,9 +1,12 @@
-.editable-card-front{
+.editable-card{
 	height:480px;
+	padding:8px;
+	font-size:20px;
+}
+.editable-card-front{
 	background:blue;
 }
 .editable-card-back{
-	height:480px;
 	background:orange;
 }
 .editable-card-side-title{
