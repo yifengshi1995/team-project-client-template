@@ -1,0 +1,105 @@
+body {
+  padding-top: 60px;
+  background-color: #f1f1f1;
+}
+
+.navbar {
+    background-color: #2E8B57;
+}
+.deck-name {
+    text-align: center;
+    margin-top: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+.card-display {
+    height: 545px;
+}
+.card {
+    text-align: center;
+    height: 440px;
+    background-color: white;
+    width: 665px;
+    display: inline-block;
+    padding-bottom: 0px;
+    box-shadow: 0 2px 4px 0 #BBBBBB;
+
+}
+.fwd-back-btn {
+    display: inline-block;
+    background-color: #BBBBBB;
+    position: relative; bottom: 200px;
+    color: white;
+    border-radius: 10px;
+}
+
+.fwd-back-btn:hover {
+    background-color: #E5E5E5;
+}
+
+.back-button-wrap {
+    margin-top: 50px;
+}
+
+.right-side-buttons {
+    position: fixed;
+    top: 180px;
+}
+
+.edit-button {
+    margin-right: 30px;
+    background-color: #BBBBBB;
+    border-color: #BBBBBB;
+    border-radius: 5px;
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #E5E5E5
+}
+
+.add-button:hover {
+    background-color: #E5E5E5
+}
+
+.add-button {
+    background-color: #BBBBBB;
+    border-color: #BBBBBB;
+    border-radius: 5px;
+    color: white;
+}
+
+.edit-add-buttons {
+    position: relative; left: 340px;
+}
+
+.bottom-scrollbar {
+    height: 120px;
+}
+
+div.scrollmenu {
+    background-color: #E5E5E5;
+    overflow: auto;
+    margin-top: 10px;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 110px;
+    white-space: nowrap;
+
+}
+
+div.scrollmenu a {
+    display: inline-block;
+    color: #C5C5C5;
+    text-align: left;
+    background-color: white;
+    height: 90px;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 130px;
+    text-decoration: none;
+    box-shadow: 0 2px 4px 0 #BBBBBB;
+}
