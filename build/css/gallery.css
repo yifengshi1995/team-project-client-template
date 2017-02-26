@@ -18,7 +18,7 @@ body {
     text-align: center;
     height: 440px;
     background-color: white;
-    width: 665px;
+    width: 685px;
     display: inline-block;
     padding-bottom: 0px;
     box-shadow: 0 2px 4px 0 #BBBBBB;
@@ -30,6 +30,9 @@ body {
     position: relative; bottom: 200px;
     color: white;
     border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 
 .fwd-back-btn:hover {
