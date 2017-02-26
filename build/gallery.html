@@ -5,18 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Edit Card</title>
+    <title>Smart Cards</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/cardCSS.css" rel="stylesheet">
 
     <!-- Custom CSS goes here -->
-    <link href="css/grid.css" rel="stylesheet">
-	<link href="css/cardCSS.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
     <link href="css/gallery.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet">
   </head>
-  <body data-spy="scroll" data-target=".grid-left-bar">
+  <body>
+    <!-- Custom HTML goes here -->
     <nav class="navbar navbar-default navbar-fixed-top"></nav>
     <nav class="navbar navbar-fixed-top navbar-default">
       <div class="container">
@@ -39,11 +39,11 @@
             <!-- Left-aligned items. -->
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search SmartCards">
-                <span class="input-group-btn">
+                <span class="input-group-btn" { width: 700px;}>
                 <button type="submit" class="btn btn-default">
                     <span class="glyphicon glyphicon-search"></span>
                 </button>
-				</span>
+              </span>
             </div>
           </form>
           <div class="nav navbar-nav navbar-right">
@@ -71,64 +71,54 @@
         </div>
       </div> <!-- /.navbar-right -->
         </div><!-- /.navbar-collapse -->
-    </div><!-- Container -->
+    </div><!-- /.container -->
     </nav>
-    <!-- Custom HTML goes here -->
-<div class="container">
-  <!-- The row that contains the three main columns of the website. -->
-  <div class="row">
-    <!-- Left sidebar: A cell that spans 2 columns -->
-    <div class="col-md-12">
-  <div class="row">
-    <!-- Main feed: A cell that spans 7 columns -->
-    <div class="col-md-9">
-		<div class="row">
-			<div class="col-md-6">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="editable-card-side-title">Front</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12"><div class="editable-card editable-card-front" contenteditable>Front</div></div>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="row">
-					<div class="col-md-12"><div class="editable-card-side-title">Back</div></div>
-				</div>
-				<div class="row">
-					<div class="col-md-12"><div class="editable-card editable-card-back" contenteditable>Back</div></div>
-				</div>
-			</div>
-		</div>
-    </div>
-    <!-- Right sidebar: A cell that spans 3 columns -->
-    <div class="col-md-3">
-				<div class="row">
-					<div class="col-md-12"><div class="editable-card-side-title">Controls</div></div>
-				</div>
-      <div class="row horizontal-flex">
-		<button class="card-editing-buttons">TextIcon</button>
-		<button class="card-editing-buttons">Color</button>
-		<button class="card-editing-buttons">Highlight</button>
-	  </div>
-     <div class="row horizontal-flex">
-		<button class="card-editing-buttons"><b>BOLD</b></button>
-		<button class="card-editing-buttons"><i>Emphasize</i></button>
-		<button class="card-editing-buttons"><u>Underline</u></button>
-	  </div>
-     <div class="row horizontal-flex">
-		<button class="card-editing-buttons">Image</button>
-		<button class="card-editing-buttons">Video</button>
-		<button class="card-editing-buttons">Audio</button>
-	  </div>
-     <div class="row horizontal-flex">
-		<button class="card-editing-buttons">Finish</button>
-		<button class="card-editing-buttons">Cancel</button>
-	  </div>
-    </div>
-  </div>
+
+    <div class="container">
+        <div class="row">
+            <!--- RIGTH SIDE --->
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-8">
+                <div class="row card-display">
+
+                    <div class="deck-name">
+                        <h1>Deck Name</h1>
+                    </div>
+                    <br>
+                    <!-- NEXT CARD BUTTON -->
+                    <button type="button" class="btn fwd-back-btn">
+                        <span class="glyphicon glyphicon-menu-left"></span>
+                    </button>
+
+                    <!-- CARD DISPLAYED HERE -->
+                    <div class="card">
+
+                    </div>
+                    <!-- PREVIEW CARD BUTTON -->
+                    <button type="button" class="btn fwd-back-btn">
+                        <span class="glyphicon glyphicon-menu-right"></span>
+                    </button>
+
+                </div>
+                <div class="row">
+                    <div class="edit-add-buttons">
+                      <button type="button" class="btn btn-sm btn-default edit-button">
+                          <span class="glyphicon glyphicon-pencil"></span>
+                      </button>
+                      <button type="button" class="btn btn-sm btn-default add-button">
+                         <span class="glyphicon glyphicon-plus"></span>
+                      </button>
+                    </div>
+                </div>
+            </div>
+            <!--- LEFT SIDE --->
+            <div class="col-md-2">
+
+            </div>
+        </div>
+        <!-- bottom scrollbar display -->
         <div class="row">
             <div class="col-md-12 bottom-scrollbar">
                 <div class="scrollmenu">
@@ -148,9 +138,9 @@
                 </div>
             </div>
         </div>
+
+
     </div>
-  </div>
-</div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
