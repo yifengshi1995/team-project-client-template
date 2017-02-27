@@ -5,10 +5,10 @@
 
 .scrollable-list{
   overflow: auto;
-  height: 64vh;
+  height: 67vh;
 }
 
-.left-bar-head {
+.left-bar-head{
   background-color: purple;
   text-align: center;
   color: #DDDDDD;
