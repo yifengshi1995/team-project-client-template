@@ -1,5 +1,5 @@
 .home-box{
-  margin-top: 30px;
+  margin: 20px;
   padding: 10px;
   text-align: center;
   border: solid gray;
@@ -40,6 +40,7 @@ ul{
 }
 
 .left-bar-head{
+  margin-top: 25px;
   background-color: #d4d5d8;
   color: black;
   border-bottom: solid gray 1px;
@@ -53,7 +54,7 @@ ul{
 /* Blue background */
 .navbar {
   /* background-color: #3a5795; */
-  background-color: purple;
+  background-color: #2E8B57; /* it was purple*/
 }
 /* Make house logo white, even if the user hovers over it */
 .navbar .navbar-brand,
@@ -240,7 +241,27 @@ a:visited {
 }
 
 input[type=text]{
-  width: 90%;
-  /*box-sizing:border-box;*/
-    /*-moz-box-sizing:border-box;*/
+  /*width: 90%;*/
+  width: 200px;
+  border: 0.3px solid black;
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  margin-bottom: 10px;
+}
+
+input[type=textarea]{
+  /*width: 90%;*/
+  width: 200px;
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+}
+
+.description {
+  width: 200px;
+  resize: none;
+  font-size: 16px;
+}
+
+.email {
+  font-size: 16px;
 }
