@@ -1,15 +1,17 @@
 .grid-left-bar {
   border: 1px solid #CCCCCC;
+  top: 85px;
 }
 
-.grid-left-bar .scrollable-list{
+.scrollable-list{
   overflow: auto;
-  height: 640px;
+  height: 67vh;
 }
 
-.left-bar-head {
-  background-color: #CCCCCC;
+.grid-left-bar-head{
+  background-color: #2E8B57;
   text-align: center;
+  color: #DDDDDD;
 }
 
 .left-bar-item {
@@ -21,7 +23,14 @@
 }
 
 .grid-main {
-  height: 700px;
+  height: 92.5vh;
+}
+
+
+.grid-main ul {
+  padding-top: 85px;
+  padding-left: 30px;
+  list-style-type: none;
 }
 
 .card {
@@ -73,36 +82,73 @@ input {
 :checked + .card {
     transform: rotateX(180deg);
     -webkit-transform: rotateX(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateX(180deg);
 }
 
 label:hover :checked + .card{
     transform: rotateX(180deg);
     -webkit-transform: rotateX(180deg);
-    box-shadow: 0 20px 20px rgba(255,255,255,.2);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateX(180deg);
 }
 
 label:hover + .card{
     transform: rotateX(180deg);
     -webkit-transform: rotateX(180deg);
-    box-shadow: 0 20px 20px rgba(255,255,255,.2);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateX(180deg);
 }
 
-.grid-right-bar {
-  height: 700px;
-  border: 1px solid #000000;
+.grid-right-bar{
+  text-align: center;
+  height: 92.5vh;
+}
+
+.grid-right-bar li{
+  padding-top: 20px;
   text-align: center;
 }
 
+.glyphicon-heart{
+  font-size: 30px;
+}
+
+.glyphicon-envelope {
+  font-size: 30px;
+}
+
+.glyphicon-envelope {
+  font-size: 30px;
+}
+
+.glyphicon-share{
+  font-size: 30px;
+}
+
+.btn-sq-lg {
+  width: 80px;
+  height: 90px;
+  background-color: #2E8B57;
+  color: #DDDDDD !important;
+  text-align: center;
+}
+
+.placeholder {
+  height: 42vh;
+}
+
 body {
-  padding-top: 60px;
+  padding-top: 50px;
   background-color: #e9eaed;
 }
 
-.grid-main ul {
-  padding-top: 60px;
-  padding-left: 15px;
-  list-style-type: none;
-}
 
 ul {
   padding: 0;
@@ -110,5 +156,5 @@ ul {
 }
 
 .navbar {
-  background-color: purple;
+  background-color: #2E8B57;
 }
