@@ -76,53 +76,49 @@
 
     <div class="container">
         <div class="row">
-            <!--- RIGTH SIDE --->
-            <div class="col-md-2">
+            <!--- Left side --->
+            <div class="col-md-2 left-panel">
 
             </div>
             <div class="col-md-8">
-                <div class="row card-display">
+                <div class="row-card-display">
+                    <div class="card-display">
+                        <div class="deck-name">
+                            <h1>Deck Name</h1>
+                        </div>
+                        <br>
+                        <button type="button" class="btn prev-card-btn">
+                            <span class="glyphicon glyphicon-menu-left"></span>
+                        </button><!--
 
-                    <div class="deck-name">
-                        <h1>Deck Name</h1>
+                     --><div class="card">
+
+                        </div><!--
+                     --><button type="button" class="btn next-card-btn">
+                            <span class="glyphicon glyphicon-menu-right"></span>
+                        </button>
                     </div>
-                    <br>
-                    <!-- NEXT CARD BUTTON -->
-                    <button type="button" class="btn fwd-back-btn">
-                        <span class="glyphicon glyphicon-menu-left"></span>
-                    </button>
-
-                    <!-- CARD DISPLAYED HERE -->
-                    <div class="card">
-
-                    </div>
-                    <!-- PREVIEW CARD BUTTON -->
-                    <button type="button" class="btn fwd-back-btn">
-                        <span class="glyphicon glyphicon-menu-right"></span>
-                    </button>
 
                 </div>
                 <div class="row">
-                    <div class="edit-add-buttons">
-                      <button type="button" class="btn btn-sm btn-default edit-button">
+                      <button type="button" class="btn btn-sm btn-default edit-btn">
                           <span class="glyphicon glyphicon-pencil"></span>
                       </button>
-                      <button type="button" class="btn btn-sm btn-default add-button">
+                      <button type="button" class="btn btn-sm btn-default add-btn">
                          <span class="glyphicon glyphicon-plus"></span>
                       </button>
-                    </div>
                 </div>
             </div>
-            <!--- LEFT SIDE --->
-            <div class="col-md-2">
+            <!--- Right side --->
+            <div class="col-md-2 right-panel">
 
             </div>
         </div>
-        <!-- bottom scrollbar display -->
+        <!-- Bottom scrollbar display -->
         <div class="row">
             <div class="col-md-12 bottom-scrollbar">
                 <div class="scrollmenu">
-                    <!---   CARD PREVIEWS GO HERE --->
+                    <!---   Card thumbnails go here --->
                     <a href="#">1</a>
                     <a href="#">2</a>
                     <a href="#">3</a>
@@ -138,8 +134,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js"></script>
