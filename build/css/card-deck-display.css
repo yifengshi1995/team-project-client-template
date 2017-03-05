@@ -1,0 +1,40 @@
+/* Any styling used to display cards should go here, unless it is very page
+specific. */
+
+/* deck name text */
+.search-result .deck-name {
+  margin:0px;
+  display:inline;
+  font-size:20px;
+}
+
+.search-result .author-name {
+  margin:0px;
+  display:inline;
+  font-size:18px;
+}
+
+.gallery-card-display .deck-name {
+  text-align: center;
+  margin-top: 30px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* card styling --------------------------------------------------------------*/
+
+.card-column {
+  background-color: red;
+}
+
+.deck-grid  {
+  background-color: blue;
+}
+
+.mini-deck {
+  margin: 5px;
+  border: solid blue 5px;
+  border-radius: 15px;
+  width: 100px;
+  height: 150px;
+  background-color: #5555FF;
+}

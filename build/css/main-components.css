@@ -1,3 +1,11 @@
+/* These are the main components. Anything that is not page specific and that
+styles a major part of the page should go here. */
+
+body {
+  padding-top: 60px;
+  background-color: #e9eaed;
+}
+
 /* navbar stuff --------------------------------------------------------------*/
 
 /*  navbar background */
