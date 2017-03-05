@@ -6,3 +6,23 @@
 .deck-description {
   background-color: #8888FF;
 }
+
+.search-result .deck-name-search {
+  margin:0px;
+  display:inline;
+  font-size:20px;
+}
+
+.search-result .author-name-search {
+  margin:0px;
+  display:inline;
+  font-size:18px;
+}
+
+.search-deck-preview img {
+  display: block;
+  max-width: 5px;
+  max-height: 8px;
+  width: auto;
+  height: auto;
+}

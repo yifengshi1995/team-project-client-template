@@ -3,42 +3,24 @@ body {
   background-color: #f1f1f1;
 }
 
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-}
 
-.navbar {
-    background-color: #2E8B57;
-}
-
-.deck-name {
-    text-align: center;
-    margin-top: 30px;
-    font-family: 'Roboto', sans-serif;
-}
 .card-display {
-    height: 520px;
-    width: 100%;
-    margin: 0px;
+    height: 545px;
 }
-
 .card {
-    display: inline-block;
-    width: calc(100% - 42px - 42px);
-    height:440px;
+    text-align: center;
+    height: 440px;
     background-color: white;
+    width: 685px;
+    display: inline-block;
     padding-bottom: 0px;
     box-shadow: 0 2px 4px 0 #BBBBBB;
-    position: relative;
-    margin-left: 2px;
-    margin-right: 2px;
-}
 
-.prev-card-btn, .next-card-btn {
+}
+.fwd-back-btn {
     display: inline-block;
+    background-color: #BBBBBB;
     position: relative; bottom: 200px;
-    padding: 0px;
     color: white;
     border-radius: 10px;
     width: 40px;
@@ -46,33 +28,44 @@ html, body {
     border-radius: 50%;
 }
 
-.prev-card-btn:hover, .next-card-btn:hover {
+.fwd-back-btn:hover {
     background-color: #E5E5E5;
 }
 
-.edit-btn, .add-btn {
-    position: relative;
-    margin-right: 0px;
+.back-button-wrap {
+    margin-top: 50px;
+}
+
+.right-side-buttons {
+    position: fixed;
+    top: 180px;
+}
+
+.edit-button {
+    margin-right: 30px;
     background-color: #BBBBBB;
-    border-style: none;
+    border-color: #BBBBBB;
     border-radius: 5px;
     color: white;
 }
 
-.edit-btn {
-    left: calc(50% - 60px);
-}
-
-.add-btn {
-    left: calc(50% - 5px);
-}
-
-.edit-btn:hover {
+.edit-button:hover {
     background-color: #E5E5E5
 }
 
-.add-btn:hover {
+.add-button:hover {
     background-color: #E5E5E5
+}
+
+.add-button {
+    background-color: #BBBBBB;
+    border-color: #BBBBBB;
+    border-radius: 5px;
+    color: white;
+}
+
+.edit-add-buttons {
+    position: relative; left: 340px;
 }
 
 .bottom-scrollbar {

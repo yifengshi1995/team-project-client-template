@@ -1,0 +1,20 @@
+/* deck name text */
+.search-result .deck-name {
+  margin:0px;
+  display:inline;
+  font-size:20px;
+}
+
+.search-result .author-name {
+  margin:0px;
+  display:inline;
+  font-size:18px;
+}
+
+.gallery-card-display .deck-name {
+  text-align: center;
+  margin-top: 30px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* deck grid styling */
