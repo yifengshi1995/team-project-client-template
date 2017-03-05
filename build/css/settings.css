@@ -23,15 +23,7 @@
   font-size: 300%;
 }
 
-.profile{
-  border-bottom: solid gray 2px;
-  font-size: 200%;
-  text-align: center;
-}
 
-.profile-picture{
-  font-size: 700%;
-}
 
 .stats{
   border-bottom: solid gray 2px;
@@ -227,16 +219,6 @@ body {
   padding: 2px;
   /* Sets the border radius to 2px for each corner. */
   border-radius: 2px;
-}
-
-
-/* Makes links dark blue, even if they have been visited. (By default, the
-   browser will change the look of visited links.) */
-a,
-a:visited {
-  /* The color Facebook uses. */
-  color: #3b5998;
-  font-weight: bold;
 }
 
 .green {

@@ -31,15 +31,9 @@
   font-size: 300%;
 }
 
+/* TODO possibly fix hackiness of profile picture frame (low priority) */
 .profile{
-  border-bottom: solid gray 2px;
-  font-size: 200%;
-  text-align: center;
   padding-top: 20px;
-}
-
-.profile-picture{
-  font-size: 700%;
 }
 
 .stats{
@@ -68,67 +62,6 @@ ul{
   background-color: #d9dbe0 !important;
 }
 
-/*  navbar background */
-.navbar {
-  background-color: #2E8B57;
-  /*background-color: #770053;*/
-}
-
-/* Make grid logo white, even if the user hovers over it */
-.navbar .navbar-brand,
-.navbar .navbar-brand:hover {
-  color: white;
-}
-
-/* Remove the background color and border of all navbar buttons */
-.navbar button {
-  background-color: transparent;
-  border: none;
-  color: #2e467c;
-}
-
-/* Make buttons slightly darker when the user hovers over it */
-.navbar button:hover {
-  background-color: transparent;
-  color: #22345c;
-  border: none;
-}
-
-.navbar button:active,
-.navbar button:focus,
-.navbar button:active:focus {
-  background-color: transparent;
-  color: white;
-  border: none;
-  outline: none;
-  box-shadow: none;
-}
-
-/* Search button style -- overrides the above two rules for the search
-   button */
-.navbar form button,
-.navbar form button:hover,
-.navbar form button:focus,
-.navbar form button:active,
-.navbar form button:active:focus {
-  background-color: lightgrey;
-  color: black;
-  width: 50px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-top: 1px solid rgb(204, 204, 204);
-  border-bottom: 1px solid rgb(204, 204, 204);
-  border-right: 1px solid rgb(204, 204, 204);
-  outline: none;
-  box-shadow: none;
-}
-
-.navbar .navbar-right > .btn-toolbar > .btn-group:first-child button,
-.navbar .navbar-right > .btn-toolbar > .btn-group:nth-child(2) button
-{
-  color: white;
-}
-
 body {
   padding-top: 60px;
   background-color: #e9eaed;
@@ -139,10 +72,4 @@ body {
   border: 1px solid lightgrey;
   background-color: white;
   padding-bottom: 10px;
-}
-
-a,
-a:visited {
-  color: #3b5998;
-  font-weight: bold;
 }
