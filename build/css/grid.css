@@ -1,35 +1,15 @@
-.grid-left-bar {
-  border: 1px solid #CCCCCC;
-  top: 85px;
-}
-
-.scrollable-list{
-  overflow: auto;
-  height: 67vh;
-}
-
-.grid-left-bar-head{
-  background-color: #2E8B57;
-  text-align: center;
-  color: #DDDDDD;
-}
-
-.left-bar-item {
-  margin: 20px 0;
-}
-
-.img-left-bar {
-  margin: 0 auto;
+.prev-page-button, .next-page-button{
+  border: 1px solid black;
+  height: 92.5vh;
 }
 
 .grid-main {
   height: 92.5vh;
 }
 
-
-.grid-main ul {
+.cardholder {
   padding-top: 85px;
-  padding-left: 30px;
+  padding-left: 40px;
   list-style-type: none;
 }
 
@@ -47,9 +27,9 @@
 	border-radius: 10px;
   border: 1px solid black;
   resize: both;
-  width: 180px;
-  height: 252px;
-  line-height: 252px;
+  width: 252px;
+  height: 180px;
+  line-height: 180px;
   text-align: center;
   font-size: 20px;
 }
@@ -106,14 +86,13 @@ label:hover + .card{
     transform: rotateX(180deg);
 }
 
-.grid-right-bar{
+.bottom-functions{
   text-align: center;
-  height: 92.5vh;
+  padding-top: 30px;
 }
 
-.grid-right-bar li{
-  padding-top: 20px;
-  text-align: center;
+.bottom-functions .btn{
+  margin: 10px;
 }
 
 .glyphicon-heart{
@@ -133,15 +112,11 @@ label:hover + .card{
 }
 
 .btn-sq-lg {
-  width: 80px;
+  width: 70px;
   height: 90px;
   background-color: #2E8B57;
   color: #DDDDDD !important;
   text-align: center;
-}
-
-.placeholder {
-  height: 42vh;
 }
 
 body {
