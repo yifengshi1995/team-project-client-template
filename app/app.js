@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Grid from './components/grid.js';
 import UIEditCard from './components/ui-edit-card.js'
+import Gallery from './components/gallery.js';
+
 if (document.getElementById('grid-main') !== null){
   ReactDOM.render(
     <Grid />,
@@ -12,4 +14,12 @@ if (document.getElementById('grid-main') !== null){
     <UIEditCard />,
     document.getElementById('ui-edit-card')
   );
+
+}
+else if (document.getElementById('ui-gallery') !== null) {
+  ReactDOM.render(
+    <Gallery />,
+    document.getElementById('ui-gallery')
+  );
+
 }
