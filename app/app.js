@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Grid from './components/grid.js';
 import UIEditCard from './components/ui-edit-card.js'
 import Gallery from './components/gallery.js';
+import Home from './components/home.js';
 
 if (document.getElementById('grid-main') !== null){
   ReactDOM.render(
@@ -16,6 +17,14 @@ if (document.getElementById('grid-main') !== null){
   );
 
 }
+else if (document.getElementById('ui-home') !== null) {
+  ReactDOM.render(
+    <Home />,
+    document.getElementById('ui-home')
+  );
+
+}
+
 else if (document.getElementById('ui-gallery') !== null) {
   ReactDOM.render(
     <Gallery />,
