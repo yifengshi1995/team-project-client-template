@@ -5,18 +5,21 @@ import UIEditCard from './components/ui-edit-card.js'
 import Gallery from './components/gallery.js';
 import Home from './components/home.js';
 
-if (document.getElementById('grid-main') !== null){
+if (document.getElementById('ui-grid') !== null) {
   ReactDOM.render(
     <Grid />,
-    document.getElementById('grid-main')
+    document.getElementById('ui-grid')
   );
-} else if (document.getElementById('ui-edit-card') !== null) {
+}
+
+else if (document.getElementById('ui-edit-card') !== null) {
   ReactDOM.render(
     <UIEditCard />,
     document.getElementById('ui-edit-card')
   );
 
 }
+
 else if (document.getElementById('ui-home') !== null) {
   ReactDOM.render(
     <Home />,
