@@ -17,6 +17,7 @@
 
 .welcome{
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .larger{
@@ -24,13 +25,13 @@
 }
 
 .profile{
-  border-bottom: solid gray 2px;
+  /*border-bottom: solid gray 2px;*/
   font-size: 200%;
   text-align: center;
 }
 
 .profile-picture{
-  font-size: 700%;
+  font-size: 600%;
 }
 
 .stats{
@@ -172,21 +173,10 @@ ul{
   background-color: transparent;
 }
 
-/* Make the "John" and "Home" buttons white. Would probably be cleaner
-   using a CSS class! */
 .navbar .navbar-right > .btn-toolbar > .btn-group:first-child button,
 .navbar .navbar-right > .btn-toolbar > .btn-group:nth-child(2) button
 {
   color: white;
-}
-
-/* Make the "John" and "Home" buttons have a dark blue background when
-   hovered over. */
-.navbar .navbar-right > .btn-toolbar > .btn-group:first-child button:hover,
-.navbar .navbar-right > .btn-toolbar > .btn-group:nth-child(2) button:hover
-{
-  /*background-color: #2e467c;*/
-  background-color: purple;
 }
 
 .fb-status-update hr {
@@ -208,27 +198,11 @@ body {
 }
 
 /* Fix background, text, and border of right sidebar. */
-.fb-right-sidebar {
-  /* Gray text. This is the same color Facebook uses. */
-  /*color: #9197a3;*/
+.right-sidebar {
   color: #000000;
-  border: 1px solid lightgrey;
   background-color: white;
   padding-top: 20px;
-  padding-bottom: 10px;
 }
-/* Make the birthday icon look more Facebookey.
-   It would be better practice to add a custom class to the birthday widget, but
-   I'm doing this to make the workshop a little faster. */
-.fb-right-sidebar .glyphicon-gift {
-  color: white;
-  background-color: red;
-  /* Sets padding at 2px on all sides at once */
-  padding: 2px;
-  /* Sets the border radius to 2px for each corner. */
-  border-radius: 2px;
-}
-
 
 /* Makes links dark blue, even if they have been visited. (By default, the
    browser will change the look of visited links.) */
@@ -246,10 +220,14 @@ a:visited {
 input[type=text]{
   /*width: 90%;*/
   width: 200px;
-  border: 0.3px solid black;
+  /*border: 0.3px solid black;*/
   box-sizing:border-box;
   -moz-box-sizing:border-box;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+input{
+  width: 200px;
 }
 
 input[type=textarea]{
@@ -257,6 +235,12 @@ input[type=textarea]{
   width: 200px;
   box-sizing:border-box;
   -moz-box-sizing:border-box;
+  margin-bottom: 30px;
+}
+
+.field {
+  font-size: 150%;
+  font-weight: bold;
 }
 
 .description {
@@ -265,8 +249,28 @@ input[type=textarea]{
   font-size: 16px;
 }
 
-.email {
-  font-size: 16px;
+.formbutton {
+  margin-bottom: 30px;
+}
+
+.fileUpload {
+  /*source from: http://geniuscarrier.com/how-to-style-a-html-file-upload-button-in-pure-css/*/
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+    margin-bottom: 30px;
+}
+.fileUpload input.upload {
+  /*source from: http://geniuscarrier.com/how-to-style-a-html-file-upload-button-in-pure-css/*/
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
 }
 
 .selected {
