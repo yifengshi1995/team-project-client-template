@@ -4,6 +4,7 @@ import Grid from './components/grid.js';
 import UIEditCard from './components/ui-edit-card.js'
 import Gallery from './components/gallery.js';
 import Home from './components/home.js';
+import Settings from './components/settings.js';
 
 if (document.getElementById('ui-grid') !== null) {
   ReactDOM.render(
@@ -32,6 +33,14 @@ else if (document.getElementById('ui-gallery') !== null) {
   ReactDOM.render(
     <Gallery />,
     document.getElementById('ui-gallery')
+  );
+
+}
+
+else if (document.getElementById('ui-settings') !== null) {
+  ReactDOM.render(
+    <Settings />,
+    document.getElementById('ui-settings')
   );
 
 }
