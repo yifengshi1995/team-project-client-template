@@ -17,6 +17,7 @@ html, body {
     margin-top: 30px;
     font-family: 'Roboto', sans-serif;
 }
+
 .card-display {
     height: 520px;
     width: 100%;
@@ -24,26 +25,30 @@ html, body {
 }
 
 .card {
-    display: inline-block;
     width: calc(100% - 42px - 42px);
     height:440px;
     background-color: white;
     padding-bottom: 0px;
     box-shadow: 0 2px 4px 0 #BBBBBB;
     position: relative;
-    margin-left: 2px;
-    margin-right: 2px;
+    margin-left: 42px;
 }
 
 .prev-card-btn, .next-card-btn {
-    display: inline-block;
-    position: relative; bottom: 200px;
+    position: absolute; bottom: 200px;
     padding: 0px;
     color: white;
     border-radius: 10px;
     width: 40px;
     height: 40px;
     border-radius: 50%;
+}
+
+.prev-card-btn {
+    left: 0px;
+}
+.next-card-btn {
+    right: 0px;
 }
 
 .prev-card-btn:hover, .next-card-btn:hover {

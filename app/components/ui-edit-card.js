@@ -2,6 +2,8 @@ import React from 'react';
 
 import UINAVBAR from './ui-nav-bar.js';
 import STACKPREIVEWSLIDER from './ui-stack-scroll-menu.js'
+import EDITCARD from './contentable-edit-car.js'
+
 export default class UIEditCard extends React.Component {
   render() {
     return (
@@ -20,7 +22,7 @@ export default class UIEditCard extends React.Component {
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-12"><div className="editable-card editable-card-front" contentEditable>Front</div></div>
+					<EDITCARD side="Front"/>
                 </div>
               </div>
               <div className="col-md-6">
@@ -28,7 +30,7 @@ export default class UIEditCard extends React.Component {
                   <div className="col-md-12"><div className="editable-card-side-title">Back</div></div>
                 </div>
                 <div className="row">
-                  <div className="col-md-12"><div className="editable-card editable-card-back" contentEditable>Back</div></div>
+                  <EDITCARD side="Back"/>
                 </div>
               </div>
             </div>
