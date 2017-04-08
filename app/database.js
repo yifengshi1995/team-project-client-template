@@ -37,6 +37,13 @@ var initialData = {
   "cardsforstacks": {
     "1": {
       "_id": 1,
+      "contents": {
+        // 01/24/16 3:48PM EST, converted to Unix Time
+        // (# of milliseconds since Jan 1 1970 UTC)
+        // https://en.wikipedia.org/wiki/Unix_time
+        "postDate": 1453668480000,
+        "name": "ugh."
+      },
       // List of comments on the post
       "cards": [
         {
@@ -51,18 +58,26 @@ var initialData = {
     },
     "2": {
       "_id": 2,
+      "contents": {
+        // 01/24/16 3:48PM EST, converted to Unix Time
+        // (# of milliseconds since Jan 1 1970 UTC)
+        // https://en.wikipedia.org/wiki/Unix_time
+        "postDate": 1453668480000,
+        "name": "dont dont dont dont dont you need somebody to love"
+      },
       // List of comments on the post
       "cards": [
         {
-          "frontContent": "Decktwo Font Text One",
-          "backContent": "Decontwo Back Text One"
+          "frontContent": "idfasffdsbfasgafbd",
+          "backContent": "sdfaargabfrgbf"
         },
         {
-          "frontContent": "Decktwo Font Text Two",
-          "backContent": "Decktwo Back Text Two"
+          "frontContent": "fbdarbfsrgbterbt",
+          "backContent": "drebsertbsgnteretb"
         }
       ]
     }
+
   },
   // "feeds" collection. Feeds for each FB user.
   "stacks": {
