@@ -33,6 +33,11 @@ export default class UINAVBAR extends React.Component {
                 <div className="btn-toolbar pull-right" role="toolbar">
               <div className="btn-group" role="group">
                   <button type="button" className="btn btn-default navbar-btn">
+                    <span className="glyphicon glyphicon-plus"></span>
+                  </button>
+              </div>
+              <div className="btn-group" role="group">
+                  <button type="button" className="btn btn-default navbar-btn">
                     <span className="glyphicon glyphicon-cog"></span>
                   </button>
               </div>
