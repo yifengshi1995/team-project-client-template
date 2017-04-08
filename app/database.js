@@ -34,7 +34,7 @@ var initialData = {
   },
   // The 'feedItems' collection. Contains all of the feed items on our Facebook
   // system.
-  "cardsforstacks": {
+  "stackscontent": {
     "1": {
       "_id": 1,
       "contents": {
@@ -80,7 +80,7 @@ var initialData = {
 
   },
   // "feeds" collection. Feeds for each FB user.
-  "stacks": {
+  "usersStacks": {
     "4": {
       "_id": 4,
       // Listing of FeedItems in the feed.
