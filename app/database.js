@@ -12,29 +12,29 @@ var initialData = {
     "1": {
       "_id": 1,
       "fullName": "Someone",
-      "stacks": 1
+      "stacks": []
     },
     "2": {
       "_id": 2,
       "fullName": "Someone Else",
-      "stacks": 2
+      "stacks": []
     },
     "3": {
       "_id": 3,
       "fullName": "Another Person",
-      "stacks": 3
+      "stacks": []
     },
     // This is "you"!
     "4": {
       "_id": 4,
       "fullName": "John Vilk",
       // ID of your feed.
-      "stacks": 4
+      "stacks": [1,2]
     }
   },
   // The 'feedItems' collection. Contains all of the feed items on our Facebook
   // system.
-  "stackscontent": {
+  "stacks": {
     "1": {
       "_id": 1,
       "contents": {
@@ -78,26 +78,6 @@ var initialData = {
       ]
     }
 
-  },
-  // "feeds" collection. Feeds for each FB user.
-  "usersStacks": {
-    "4": {
-      "_id": 4,
-      // Listing of FeedItems in the feed.
-      "contents": [1,2]
-    },
-    "3": {
-      "_id": 3,
-      "contents": []
-    },
-    "2": {
-      "_id": 2,
-      "contents": []
-    },
-    "1": {
-      "_id": 1,
-      "contents": []
-    }
   }
 };
 
