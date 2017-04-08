@@ -34,40 +34,35 @@ var initialData = {
   },
   // The 'feedItems' collection. Contains all of the feed items on our Facebook
   // system.
-  "cards": {
+  "cardsforstacks": {
     "1": {
       "_id": 1,
-
-      // The type and contents of this feed item. This item happens to be a status
-      // update.
-      "type": "statusUpdate",
-      "contents": {
-        // ID of the user that posted the status update.
-        "author": 1,
-        // 01/24/16 3:48PM EST, converted to Unix Time
-        // (# of milliseconds since Jan 1 1970 UTC)
-        // https://en.wikipedia.org/wiki/Unix_time
-        "postDate": 1453668480000,
-        "frontText": "Austin, TX",
-        "backText": "ugh."
-      }
+      // List of comments on the post
+      "cards": [
+        {
+          "frontContent": "id Deckone Font Text One",
+          "backContent": "Back Text One"
+        },
+        {
+          "frontContent": "Font Text Two",
+          "backContent": "Back Text Two"
+        }
+      ]
     },
     "2": {
-      // The type and contents of this feed item. This item happens to be a status
-      // update.
-      "_id": 1,
-      "type": "statusUpdate",
-      "contents": {
-        // ID of the user that posted the status update.
-        "author": 1,
-        // 01/24/16 3:48PM EST, converted to Unix Time
-        // (# of milliseconds since Jan 1 1970 UTC)
-        // https://en.wikipedia.org/wiki/Unix_time
-        "postDate": 1453668480000,
-        "frontText": "Austin, TX",
-        "backText": "ugh."
+      "_id": 2,
+      // List of comments on the post
+      "cards": [
+        {
+          "frontContent": "Decktwo Font Text One",
+          "backContent": "Decontwo Back Text One"
+        },
+        {
+          "frontContent": "Decktwo Font Text Two",
+          "backContent": "Decktwo Back Text Two"
         }
-      }
+      ]
+    }
   },
   // "feeds" collection. Feeds for each FB user.
   "stacks": {
