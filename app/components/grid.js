@@ -17,7 +17,7 @@ export default class Grid extends React.Component {
     getCardsInStack(this.state.stackId, (cardData) => {
       this.setState({cards: cardData});
     });
-    console.log(this.state.cards.length);
+    console.log(this.state.cards);
   }
 
   render() {

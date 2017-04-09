@@ -1,39 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// Modify with your startup's name!
 var startupName = "apple";
 
-// Put your mock objects here, as in Workshop 4
 var initialData = {
-  // The "user" collection. Contains all of the users in our Facebook system.
   "users": {
-    // This user has id "1".
     "1": {
       "_id": 1,
-      "fullName": "Someone",
+      "fullName": "User 1",
       "stacks": []
     },
     "2": {
       "_id": 2,
-      "fullName": "Someone Else",
+      "fullName": "User 2",
       "stacks": []
     },
     "3": {
       "_id": 3,
-      "fullName": "Another Person",
+      "fullName": "User 3",
       "stacks": []
     },
-    // This is "you"!
     "4": {
       "_id": 4,
-      "fullName": "John Vilk",
-      // ID of your feed.
+      "fullName": "User 4",
       "stacks": [1,2]
     }
   },
-  // The 'feedItems' collection. Contains all of the feed items on our Facebook
-  // system.
   "stacks": {
     "1": {
       "_id": 1,
