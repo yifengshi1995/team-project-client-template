@@ -3,6 +3,7 @@
 	padding:8px;
 	font-size:20px;
 	outline:1px solid #ccc;
+	width:100%;
 }
 .editable-card-front{
 	background:white;
