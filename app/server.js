@@ -9,3 +9,9 @@ function emulateServerReturn(data, cb) {
     cb(data);
   }, 1);
 }
+
+export function getCardsInStack(stackId, cb) {
+  var stack = readDocument('stacks', stackId);
+  var cards = stack.cards;
+  emulateServerReturn(cards, cb);
+}

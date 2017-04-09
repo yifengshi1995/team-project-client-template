@@ -8,11 +8,19 @@ import Settings from './components/settings.js';
 
 if (document.getElementById('ui-grid') !== null) {
   ReactDOM.render(
-    <Grid />,
+    <Grid stack={1} />,
     document.getElementById('ui-grid')
   );
 }
-
+/*
+class GridPage extends React.Component {
+    render(){
+      return(
+        <Grid stack={1} />
+      )
+    }
+}
+*/
 else if (document.getElementById('ui-edit-card') !== null) {
   ReactDOM.render(
     <UIEditCard />,
