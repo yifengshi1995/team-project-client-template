@@ -22,7 +22,6 @@ export function saveCard(StackId, user, fTxt, bTxt, cb) {
 
 export function getCardsInStack(stackId, cb) {
   var stack = readDocument('stacks', stackId);
-  stack = stack.map((stk) => readDocument("stacks", stk));
   var cards = stack.cards;
   emulateServerReturn(cards, cb);
 }
