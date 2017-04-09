@@ -1,6 +1,7 @@
 import React from 'react';
-import Gridmain from './gridmain.js';
-import UINAVBAR from './ui-nav-bar.js';
+import Gridmain from './gridmain';
+import Gridmainbar from './gridmainbar';
+import UINAVBAR from './ui-nav-bar';
 import {getCardsInStack} from '../server';
 
 export default class Grid extends React.Component {
@@ -23,7 +24,19 @@ export default class Grid extends React.Component {
     return (
       <div>
         <UINAVBAR />
-        <Gridmain cards={this.state.cards}/>
+        <div className="container">
+          <div className="row">
+            <div className="row">
+              <div className="col-md-12">
+                    {this.state.cards.map((card) => {
+                      return(
+                        <Gridmain key={card._id} cards={card}/>
+                      );
+                    })}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
