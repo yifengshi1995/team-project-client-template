@@ -3,9 +3,12 @@ import UINAVBAR from './ui-nav-bar.js';
 import Stackfeed from './stackfeed.js';
 
 export default class Home extends React.Component {
-
-
-
+    constructor(props){
+      super(props);
+      this.state = {
+        user: this.props.user
+      };
+    }
 
     render() {
         return (
@@ -20,10 +23,8 @@ export default class Home extends React.Component {
             <div className="col-md-8 main-home-section">
                 Your Stacks
                 <br />
-                <Stackfeed user={4} />
+                <Stackfeed user={this.state.user} />
             </div>
-
-
                 <div className="col-md-3 right-sidebar">
                     <div className="row profile">
                         <span className="glyphicon glyphicon-user profile-picture"></span>

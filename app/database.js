@@ -83,6 +83,7 @@ if (data === null) {
  * A dumb cloning routing. Serializes a JSON object as a string, then
  * deserializes it.
  */
+
 function JSONClone(obj) {
   return JSON.parse(JSON.stringify(obj));
 }
@@ -125,7 +126,7 @@ export function addDocument(collectionName, newDoc) {
 
 /**
  * Reset our browser-local database.
-
+ */
 export function resetDatabase() {
   localStorage.setItem(startupName, JSON.stringify(initialData));
   data = JSONClone(initialData);
@@ -133,7 +134,7 @@ export function resetDatabase() {
 
 /**
  * Reset database button.
-
+ */
 class ResetDatabase extends React.Component {
   render() {
     return (
@@ -146,6 +147,7 @@ class ResetDatabase extends React.Component {
   }
 }
 
+/*
 ReactDOM.render(
   <ResetDatabase />,
   document.getElementById('db-reset')

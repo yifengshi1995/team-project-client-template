@@ -20,7 +20,7 @@ export default class Stackfeed extends React.Component {
         <div>
             {this.state.stacks.map((stack) => {
                 return (
-                    <Stackfeeditem key={stack._id} data={stack} />
+                    <Stackfeeditem key={stack._id} userid={this.props.user} data={stack} />
                 )
             })}
         </div>
