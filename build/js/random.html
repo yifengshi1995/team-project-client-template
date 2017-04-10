@@ -7,43 +7,76 @@
    <body>
    <script>
 
-   var quotes = [
-           "A day without sunshine is like, you know, night.",
-           "If you try to fail, and succeed, which have you done?",
-           "If Britney Spears can make it through 2007, you can make it through the day",
-           "A diamond is merely a lump of coal that did well under pressure",
-           "Even if you are on the right track, you'll get run over if you just sit there",
-           "Never put off until tomorrow what you can do the day after tomorrow",
-           "People often say that motivation doesn't last.  Well, neither does bathing - that's why we recommend it daily",
-           "If you think you are too small to make a difference, try sleeping with a mosquito",
-           "If you're going to be able to look back on something and laugh about it, you might as well laugh about it now",
-           "There are no traffic jams along the extra mile",
-           "Life is lke photography.  You need the negatives to develop",
-           "If you hit the target every time its too near or too big",
-           "Life is a shipwreck but we must not forget to sng in the lifeboats",
-           "I didn't fail the test.  I just found 100 ways to do it wrong"
-   ]
+     var quotes = [
+       {
+         "quote": "A day without sunshine is like, you know, night.",
+         "author": "Steve Martin"
+       },
+       {
+         "quote": "If you try to fail, and succeed, which have you done?",
+         "author": "George Carlin"
+       },
+       {
+         "quote": "If Britney Spears can make it through 2007, you can make it through the day",
+         "author": "The Internet"
+       },
+       {
+         "quote": "A diamond is merely a lump of coal that did well under pressure",
+         "author": "Unknown"
+       },
+       {
+         "quote": "Even if you are on the right track, you'll get run over if you just sit there",
+         "author": "Will Rodgers"
+       },
+       {
+         "quote": "Never put off until tomorrow what you can do the day after tomorrow",
+         "author": "Mark Twain"
+       },
+       {
+         "quote": "People often say that motivation doesn't last.  Well, neither does bathing - that's why we recommend it daily",
+         "author": "Zig Ziglar"
+       },
+       {
+         "quote": "If you think you are too small to make a difference, try sleeping with a mosquito",
+         "author": "Dalai Lama"
+       },
+       {
+         "quote": "If you're going to be able to look back on something and laugh about it, you might as well laugh about it now",
+         "author": "Marie Osmond"
+       },
+       {
+         "quote": "There are no traffic jams along the extra mile",
+         "author": "Roger Staubach"
+       },
+       {
+         "quote": "Life is like photography.  You need the negatives to develop",
+         "author": "Unknown"
+       },
+       {
+         "quote": "If you hit the target every time its too near or too big",
+         "author": "Tom Hirshfield"
+       },
+       {
+         "quote": "Life is a shipwreck but we must not forget to sing in the lifeboats",
+         "author": "Voltaire"
+       },
+       {
+         "quote": "I didn't fail the test.  I just found 100 ways to do it wrong",
+         "author": "Benjamin Franklin"
+       },
+       {
+         "quote": "When life gives you lemons, chuck them and get something decent to eat.",
+         "author": "Augustus Ijams"
+       },
+       {
+         "quote": "We totally didn't copy this quote idea from slack",
+         "author": "Augustus Ijams"
+       },
+     ]
 
-   var names = [
-     "Steve Martin",
-     "George Carlin",
-     "The Internet",
-     "Unknown",
-     "Will Rodgers",
-     "Mark Twain",
-     "Zig Ziglar",
-     "Dalai Lama",
-     "Marie Osmond",
-     "Roger Staubach",
-     "Unknown",
-     "Tom Hirshfield",
-     "Voltaire",
-     "Benjamin Franklin"
-
-   ]
-      var index = Math.floor(Math.random() * quotes.length);
-    	var quote = quotes[index];
-      var name = names[index];
+     var index = Math.floor(Math.random() * quotes.length);
+     var quote = quotes[index].quote;
+     var name = names[index].author;
 
    </script>
 
