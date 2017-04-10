@@ -6,17 +6,17 @@ export default class Stackfeeditem extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = this.props;
+        this.state = this.props.data;
     }
 
-    componentDidMount() {
+    /*componentDidMount() {
         getStackData(this.props.data, (stackData) => {
             this.setState(stackData);
         })
-    }
+    }*/
     render() {
         var data = this.state;
-
+        console.log(data);
         return (
             <div>
                 <div className="search-result">
@@ -33,7 +33,7 @@ export default class Stackfeeditem extends React.Component {
                             <a href="#">{data.name}</a>
                         </div>
                         <div className="stack-info">
-                            20 cards  ·  Posted {unixTimeToString(data.postDate)}
+                            {data.cards.length} cards  ·  Posted {unixTimeToString(data.postDate)}
                         </div>
 
                     </div>

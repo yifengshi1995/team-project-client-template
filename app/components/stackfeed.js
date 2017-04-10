@@ -1,5 +1,5 @@
 import React from 'react';
-import {getUserData} from '../server';
+import {getStacksFromUser} from '../server';
 import Stackfeeditem from './stackfeeditem.js';
 
 export default class Stackfeed extends React.Component {
@@ -10,8 +10,8 @@ export default class Stackfeed extends React.Component {
         };
     }
     componentDidMount() {
-        getUserData(this.props.user, (userData) => {
-            this.setState(userData)
+        getStacksFromUser(this.props.user, (userData) => {
+            this.setState({stacks: userData});
         });
     }
 
