@@ -9,28 +9,36 @@ var initialData = {
       "_id": 1,
       "fullName": "User 1",
       "stacks": [],
-      "numStacks": 0
+      "numStacks": 0,
+      "email": "xX_Melon_Xx@umass.edu",
+      "password": "******"
     },
     "2": {
       "_id": 2,
       "fullName": "User 2",
       "stacks": [],
-      "numStacks": 0
+      "numStacks": 0,
+      "email": "xX_Watermelon_Xx@umass.edu",
+      "password": "******"
     },
     "3": {
       "_id": 3,
       "fullName": "User 3",
       "stacks": [],
-      "numStacks": 0
+      "numStacks": 0,
+      "email": "xX_Cantaloupe_Xx@umass.edu",
+      "password": "******"
     },
     "4": {
       "_id": 4,
       "fullName": "User 4",
       "stacks": [1,2],
-      "numStacks": 2
+      "numStacks": 2,
+      "email": "xX_Apple_Xx@umass.edu",
+      "password": "******"
     }
   },
-  
+
   "stacks": {
     "1": {
       "_id": 1,

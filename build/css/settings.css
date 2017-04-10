@@ -25,13 +25,13 @@
 }
 
 .profile{
-  /*border-bottom: solid gray 2px;*/
+  border-bottom: solid white 2px;
   font-size: 200%;
   text-align: center;
 }
 
 .profile-picture{
-  font-size: 600%;
+  font-size: 500%;
 }
 
 .stats{
@@ -251,6 +251,7 @@ input[type=textarea]{
 
 .formbutton {
   margin-bottom: 30px;
+  margin-right: 10px;
 }
 
 .fileUpload {

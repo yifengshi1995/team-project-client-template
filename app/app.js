@@ -27,11 +27,18 @@ class GridPage extends React.Component {
   }
 }
 
+class SettingsPage extends React.Component {
+  render() {
+    return <Settings user={4} />;
+  }
+}
+
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={HomePage} />
       <Route path="grid/:stack" component={GridPage} />
+      <Route path="settings/:user" component={SettingsPage} />
     </Route>
   </Router>
 ),document.getElementById('ui-home'));

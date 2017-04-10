@@ -1,6 +1,16 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 export default class UINAVBAR extends React.Component {
+
+  constructor(props) {
+      super(props);
+      this.state = {
+        data: this.props.data,
+        user: this.props.userid
+      };
+  }
+
   render() {
     return (
       <div>
@@ -37,9 +47,11 @@ export default class UINAVBAR extends React.Component {
                   </button>
               </div>
               <div className="btn-group" role="group">
+                <Link to={"/settings/"+this.state.user}>
                   <button type="button" className="btn btn-default navbar-btn">
                     <span className="glyphicon glyphicon-cog"></span>
                   </button>
+                </Link>
               </div>
               <div className="btn-group" role="group">
                 <button type="button" className="btn btn-default navbar-btn">
