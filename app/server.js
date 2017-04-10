@@ -26,6 +26,11 @@ export function getCardsInStack(stackId, cb) {
   emulateServerReturn(cards, cb);
 }
 
+export function getUserData(userId, cb){
+  var userData = readDocument('users',userId);
+  emulateServerReturn(userData, cb);
+}
+
 export function getStacksFromUser(userId, cb){
   var userData = readDocument('users', userId);
   var stackData = userData.stacks;

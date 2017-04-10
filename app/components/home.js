@@ -1,5 +1,8 @@
 import React from 'react';
+import {currentTimeToString}  from '../util';
+import {getUserData} from '../server';
 import UINAVBAR from './ui-nav-bar.js';
+import UISIDEBAR from './ui-side-bar.js';
 import Stackfeed from './stackfeed.js';
 
 export default class Home extends React.Component {
@@ -10,10 +13,17 @@ export default class Home extends React.Component {
       };
     }
 
+    componentDidMount(){
+        getUserData(this.props.user, (userData) => {
+          this.setState(userData)
+        });
+    }
+
     render() {
         return (
           <div>
             <UINAVBAR />
+
             <div className = "container">
             <div className = "row">
             <div className="col-md-1">
@@ -32,9 +42,9 @@ export default class Home extends React.Component {
                     </div>
                     <div className="row-stats">
                         <ul>
-                          <li>March 25, 2017</li>
+                          <li>{currentTimeToString()}</li>
                           <li>Member since: Feb 2017</li>
-                          <li>Smart Stacks: 9</li>
+                          <li>Smart Stacks: 4</li>
                           <li>Visibility: Private</li>
                         </ul>
                     </div>

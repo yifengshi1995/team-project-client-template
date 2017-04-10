@@ -4,3 +4,7 @@
 export function unixTimeToString(time) {
   return new Date(time).toLocaleString();
 }
+
+export function currentTimeToString(){
+	return new Date().toLocaleString();
+}

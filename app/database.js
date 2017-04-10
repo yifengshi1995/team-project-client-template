@@ -8,24 +8,29 @@ var initialData = {
     "1": {
       "_id": 1,
       "fullName": "User 1",
-      "stacks": []
+      "stacks": [],
+      "numStacks": 0
     },
     "2": {
       "_id": 2,
       "fullName": "User 2",
-      "stacks": []
+      "stacks": [],
+      "numStacks": 0
     },
     "3": {
       "_id": 3,
       "fullName": "User 3",
-      "stacks": []
+      "stacks": [],
+      "numStacks": 0
     },
     "4": {
       "_id": 4,
       "fullName": "User 4",
-      "stacks": [1,2]
+      "stacks": [1,2],
+      "numStacks": 2
     }
   },
+  
   "stacks": {
     "1": {
       "_id": 1,
@@ -68,7 +73,112 @@ var initialData = {
           "backContent": "drebsertbsgnteretb"
         }
       ]
-    }
+    },
+    "3": {
+      "_id": 3,
+
+        // 01/24/16 3:48PM EST, converted to Unix Time
+        // (# of milliseconds since Jan 1 1970 UTC)
+        // https://en.wikipedia.org/wiki/Unix_time
+        "postDate": 1453668480000,
+        "name": "Web Programming",
+
+      // List of comments on the post
+      "cards": [
+        {
+          "frontContent": "Front Text 1",
+          "backContent": "Back Text 1"
+        },
+        {
+          "frontContent": "Font Text Two",
+          "backContent": "Back Text Two"
+        }
+      ]
+    },
+    "4": {
+      "_id": 4,
+
+        // 01/24/16 3:48PM EST, converted to Unix Time
+        // (# of milliseconds since Jan 1 1970 UTC)
+        // https://en.wikipedia.org/wiki/Unix_time
+        "postDate": 1453668480000,
+        "name": "Dog Breeds",
+
+      // List of comments on the post
+      "cards": [
+        {
+          "frontContent": "Front Text One",
+          "backContent": "Back Text One"
+        },
+        {
+          "frontContent": "Front Text Two",
+          "backContent": "Back Text Two"
+        }
+      ]
+    },
+    "5": {
+      "_id": 5,
+
+        // 01/24/16 3:48PM EST, converted to Unix Time
+        // (# of milliseconds since Jan 1 1970 UTC)
+        // https://en.wikipedia.org/wiki/Unix_time
+        "postDate": 1453668480000,
+        "name": "Trig Identities",
+
+      // List of comments on the post
+      "cards": [
+        {
+          "frontContent": "Front Text One",
+          "backContent": "Back Text One"
+        },
+        {
+          "frontContent": "Front Text Two",
+          "backContent": "Back Text Two"
+        }
+      ]
+    },
+    "6": {
+      "_id": 6,
+
+        // 01/24/16 3:48PM EST, converted to Unix Time
+        // (# of milliseconds since Jan 1 1970 UTC)
+        // https://en.wikipedia.org/wiki/Unix_time
+        "postDate": 1453668480000,
+        "name": "World War II Battles",
+
+      // List of comments on the post
+      "cards": [
+        {
+          "frontContent": "Front Text One",
+          "backContent": "Back Text One"
+        },
+        {
+          "frontContent": "Front Text Two",
+          "backContent": "Back Text Two"
+        }
+      ]
+    },
+    "7": {
+      "_id": 7,
+
+        // 01/24/16 3:48PM EST, converted to Unix Time
+        // (# of milliseconds since Jan 1 1970 UTC)
+        // https://en.wikipedia.org/wiki/Unix_time
+        "postDate": 1453668480000,
+        "name": "US Presidents",
+
+      // List of comments on the post
+      "cards": [
+        {
+          "frontContent": "Front Text One",
+          "backContent": "Back Text One"
+        },
+        {
+          "frontContent": "Front Text Two",
+          "backContent": "Back Text Two"
+        }
+      ]
+    },
 
   }
 };
