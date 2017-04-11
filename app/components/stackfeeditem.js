@@ -19,7 +19,7 @@ export default class Stackfeeditem extends React.Component {
                 <div className="search-result">
                     <div className="search-deck-preview">
                         <div className="stack-thumbnail">
-                            <img src={'../build/img/default-thumbnail.jpg'}/>
+                            <img src={'/img/fake_card_small_1.png'}/>
                         </div>
                     </div>
                     <div className="search-deck-info">
