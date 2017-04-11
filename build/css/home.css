@@ -18,7 +18,9 @@
 
 .quote{
   margin-top: 5px;
-  padding: 10px;
+  padding: 20px;
+  padding-top: 3px;
+  padding-bottom:7px;
   text-align: center;
   border: solid gray;
 }
