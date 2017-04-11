@@ -17,8 +17,8 @@ export function saveCard(StackId, fTxt, bTxt, cb) {
   // document in the database.
   var stackItem = readDocument('stacks', StackId);
   stackItem.cards.push({
-    "frontText": fTxt,
-    "backText": bTxt
+    "frontContent": fTxt,
+    "backContent": bTxt
   });
   writeDocument('stacks', stackItem);
   // Return a resolved version of the feed item so React can

@@ -1,5 +1,4 @@
 import React from 'react';
-import {getStackData} from '../server';
 import {unixTimeToString} from '../util';
 import {Link} from 'react-router';
 
