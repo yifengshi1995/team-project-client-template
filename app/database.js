@@ -186,7 +186,7 @@ var initialData = {
           "backContent": "Back Text Two"
         }
       ]
-    },
+    }
 
   }
 };
@@ -225,6 +225,7 @@ export function writeDocument(collection, changedDocument) {
   // Store a copy of the object into the database. Models a database's behavior.
   data[collection][id] = JSONClone(changedDocument);
   // Update our 'database'.
+  console.log(data);
   localStorage.setItem(startupName, JSON.stringify(data));
 }
 

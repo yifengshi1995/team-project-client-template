@@ -39,6 +39,7 @@ ReactDOM.render((
       <IndexRoute component={HomePage} />
       <Route path="grid/:stack" component={GridPage} />
       <Route path="settings/:user" component={SettingsPage} />
+      <Route path="createcard/" component={UIEditCard} />
     </Route>
   </Router>
 ),document.getElementById('ui-home'));
