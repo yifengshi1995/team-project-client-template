@@ -38,14 +38,14 @@ export default class Home extends React.Component {
                 <div className="col-md-3 right-sidebar">
                     <div className="row profile">
                         <span className="glyphicon glyphicon-user profile-picture"></span>
-                        <p>USERNAME</p>
+                        <p>{this.state.fullName}</p>
                     </div>
                     <div className="row-stats">
                         <ul>
                           <li>{currentTimeToString()}</li>
-                          <li>Member since: Feb 2017</li>
-                          <li>Smart Stacks: 4</li>
-                          <li>Visibility: Private</li>
+                          <li>Member since: {this.state.memSince}</li>
+                          <li>Smart Stacks: {this.state.numStacks}</li>
+                          <li>Visibility: {this.state.visiblity}</li>
                         </ul>
                     </div>
                     </div>
