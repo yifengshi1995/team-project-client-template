@@ -11,6 +11,7 @@ var initialData = {
       "memSince": "Jan 2017",
       "stacks": [],
       "numStacks": 0,
+      "description": "smart cards",
       "email": "xX_Melon_Xx@umass.edu",
       "password": "******",
       "visiblity": "Private"
@@ -21,6 +22,7 @@ var initialData = {
       "memSince": "Feb 2017",
       "stacks": [],
       "numStacks": 0,
+      "description": "why you always stackin'",
       "email": "xX_Watermelon_Xx@umass.edu",
       "password": "******",
       "visiblity": "Private"
@@ -31,6 +33,7 @@ var initialData = {
       "memSince": "March 2017",
       "stacks": [],
       "numStacks": 0,
+      "description": "y u no card",
       "email": "xX_Cantaloupe_Xx@umass.edu",
       "password": "******",
       "visiblity": "Private"
@@ -41,6 +44,7 @@ var initialData = {
       "memSince": "April 2017",
       "stacks": [1,2],
       "numStacks": 2,
+      "description": "much cards such smart wow",
       "email": "xX_Apple_Xx@umass.edu",
       "password": "******",
       "visiblity": "Private"

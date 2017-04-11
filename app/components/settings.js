@@ -43,7 +43,7 @@ export default class Settings extends React.Component {
                                   <input type="file" className="upload" />
                                 </div>
                                 <p className="field">User Description</p>
-                                <input type="text" rows="4" className="input" name="description" placeholder="much cards such smart wow" /><br />
+                                <input type="text" rows="4" className="input" name="description" placeholder={this.state.description} /><br />
                                 <p className="field">Email</p>
                                 <input type="text" className="input" name="email" placeholder={this.state.email} /><br />
                                 <p className="field">Tabletop Background Image</p>
