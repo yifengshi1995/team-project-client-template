@@ -1,0 +1,2 @@
+# Ignores node dependencies (e.g. webpack).
+node_modules
