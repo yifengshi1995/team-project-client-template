@@ -10,12 +10,13 @@ export default class Grid extends React.Component {
     super(props);
     this.state = {
       stackId: props.stack,
+      userId: props.user,
       cards: []
     };
   }
 
   componentDidMount() {
-    getCardsInStack(this.state.stackId, (cardData) => {
+    getCardsInStack(this.state.userId, this.state.stackId, (cardData) => {
       this.setState({cards: cardData});
     });
   }

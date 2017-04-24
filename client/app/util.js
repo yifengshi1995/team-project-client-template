@@ -9,6 +9,14 @@ export function currentTimeToString(){
 	return new Date().toLocaleString();
 }
 
+export function hideElement(shouldHide) {
+  if (shouldHide) {
+    return 'hidden';
+  } else {
+    return '';
+  }
+}
+
 export function randomQuote(){
    var quotes = [
            "A day without sunshine is like, you know, night.",

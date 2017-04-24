@@ -24,7 +24,7 @@ export default class Stackfeeditem extends React.Component {
                     </div>
                     <div className="search-deck-info">
                         <div className="stack-name">
-                            <Link to={"/grid/" + this.state.data._id}>{data.name}</Link>
+                            <Link to={'/' + this.state.user + "/grid/" + this.state.data._id}>{data.name}</Link>
                         </div>
                         <div className="stack-info">
                             {data.cards.length} cards  ·  Posted {unixTimeToString(data.postDate)}

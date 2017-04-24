@@ -5,6 +5,7 @@ import {getUserData} from '../server';
 import UINAVBAR from './ui-nav-bar.js';
 import UISIDEBAR from './ui-side-bar.js';
 import Stackfeed from './stackfeed.js';
+import ErrorBanner from './errorbanner';
 
 export default class Home extends React.Component {
     constructor(props){
@@ -26,6 +27,11 @@ export default class Home extends React.Component {
             <UINAVBAR />
 
             <div className = "container">
+              <div className="row">
+                <div className="col-md-12">
+                  <ErrorBanner />
+                </div>
+              </div>
             <div className = "row">
             <div className="col-md-1">
 
@@ -49,7 +55,7 @@ export default class Home extends React.Component {
 
 
                 <h4>Your Stacks</h4>
-                
+
                 <Stackfeed user={this.state.user} />
 
             </div>
