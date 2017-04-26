@@ -27,6 +27,12 @@ class GridPage extends React.Component {
   }
 }
 
+class UIEditCardPage extends React.Component {
+    render() {
+        return <UIEditCard user={this.props.params.user} stack={this.props.params.stack}/>;
+    }
+}
+
 class SettingsPage extends React.Component {
   render() {
     return <Settings user={4} />;
@@ -39,7 +45,7 @@ ReactDOM.render((
       <IndexRoute component={HomePage} />
       <Route path=":user/grid/:stack" component={GridPage} />
       <Route path="settings/:user" component={SettingsPage} />
-      <Route path="createcard/" component={UIEditCard} />
+      <Route path=":user/createcard/:stack" component={UIEditCardPage} />
     </Route>
   </Router>
 ),document.getElementById('ui-home'));

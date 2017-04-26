@@ -39,6 +39,16 @@ function getUserIdFromToken(authorizationLine) {
   }
 }
 
+function saveCard(userId, stackId, fTxt, bTxt) {
+  var stackItem = readDocument('stacks', stackId);
+  stackItem.cards.push({
+    "frontContent": fTxt,
+    "backContent": bTxt
+  });
+  writeDocument('stacks', stackItem);
+
+  return(stackId);
+}
 
 function getCardsInStack(userId, stackId) {
   var stack = readDocument('stacks', stackId)
@@ -56,6 +66,31 @@ app.get('/:userid/grid/:stackid', function(req, res) {
     res.status(401).end();
   }
 });
+
+
+
+
+app.put('/:userid/createcard/:stackid', function(req, res) {
+    var userid = parseInt(req.params.userid, 10);
+    var stackid = parseInt(req.params.stackid,10);
+    var body = req.body;
+    var fromUser = getUserIdFromToken(req.get('Authorization'));
+    if (userid === fromUser){
+      res.send(saveCard(userid, stackid, body.frontContent, body.backContent));
+    }else{
+      res.status(401).end();
+    }
+});
+
+// Reset database.
+app.post('/resetdb', function(req, res) {
+  console.log("Resetting database...");
+  // This is a debug route, so don't do any validation.
+  database.resetDatabase();
+  // res.send() sends an empty response with status code 200
+  res.send();
+});
+
 
 /**
  * Translate JSON Schema Validation failures into error 400s.

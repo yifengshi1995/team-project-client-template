@@ -66,7 +66,9 @@ var initialData = {
         {
           "frontContent": "Font Text Two",
           "backContent": "Back Text Two"
-        }
+      }
+
+
       ]
     },
     "2": {

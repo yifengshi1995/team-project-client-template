@@ -70,7 +70,7 @@ var initialData = {
         {
           "frontContent": "Font Text Two",
           "backContent": "Back Text Two"
-        }
+      }
       ]
     },
     "2": {
@@ -237,7 +237,6 @@ export function writeDocument(collection, changedDocument) {
   // Store a copy of the object into the database. Models a database's behavior.
   data[collection][id] = JSONClone(changedDocument);
   // Update our 'database'.
-  console.log(data);
   localStorage.setItem(startupName, JSON.stringify(data));
 }
 
@@ -263,16 +262,21 @@ export function resetDatabase() {
   data = JSONClone(initialData);
 }
 
+
 /**
  * Reset database button.
  */
-class ResetDatabase extends React.Component {
+export class ResetDatabase extends React.Component {
   render() {
     return (
       <button className="btn btn-default" type="button" onClick={() => {
-        resetDatabase();
-        window.alert("Database reset! Refreshing the page now...");
-        document.location.reload(false);
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/resetdb');
+        xhr.addEventListener('load', function() {
+          window.alert("Database reset! Refreshing the page now...");
+          document.location.reload(false);
+        });
+        xhr.send();
       }}>Reset Mock DB</button>
     );
   }

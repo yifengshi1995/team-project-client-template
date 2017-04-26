@@ -3,6 +3,7 @@ import Gridmain from './gridmain';
 import Gridmainbar from './gridmainbar';
 import UINAVBAR from './ui-nav-bar';
 import {getCardsInStack} from '../server';
+import {Link} from 'react-router';
 
 export default class Grid extends React.Component {
 
@@ -27,6 +28,11 @@ export default class Grid extends React.Component {
         <UINAVBAR />
         <div className="container">
           <div className="row">
+              <div className="col-md-12">
+                  <button type="button" className="btn btn-default navbar-btn">
+                    <Link to={this.state.userId + "/createcard/" + this.state.stackId}><span className="glyphicon glyphicon-plus"></span></Link>
+                  </button>
+              </div>
             <div className="row">
               <div className="col-md-12">
                     {this.state.cards.map((card) => {

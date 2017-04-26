@@ -10,7 +10,8 @@ export default class UIEditCard extends React.Component {
     this.state = {
       frontVal: "",
       backVal:"",
-      deckVal:""
+      stackId: props.stack,
+      userId: props.user
     };
   }
   handleFrontChange(e){
@@ -19,22 +20,15 @@ export default class UIEditCard extends React.Component {
   handleBackChange(e){
     this.setState({ backVal: e.target.value });
   }
-  handleDeckChange(e){
-    this.setState({deckVal: e.target.value})
-  }
+
   subthiscom(){
     var front = this.state.frontVal.trim();
     var back = this.state.backVal.trim();
-    var deck = this.state.deckVal.trim();
+
     if (front !== "" && back !== "") {
-      // Post comment
-      //this.props.onPost(this.state.value);
-      //this.setState({ value: "" });
-      saveCard(deck, front, back, (updatedCommentPage) => {
-        // Update our state to trigger a re-render.
-        //this.setState(updatedCommentPage);
-      });
-      this.setState({ frontVal: "",backVal: "",deckVal:"" });
+
+      saveCard(this.state.userId, this.state.stackId, front, back);
+      this.setState({ frontVal: "",backVal: ""}); 
     }
   }
   render() {
@@ -75,7 +69,7 @@ export default class UIEditCard extends React.Component {
             <div className="row">
               <div className="col-md-12"><div className="editable-card-side-title">Controls</div></div>
             </div>
-            <input type="text" className="form-control" placeholder="Enter Deck ID" value={this.state.deckVal} onChange={(e) => this.handleDeckChange(e)}/>
+
               <button className="btn btn-default" type="button" onClick={(e) => this.subthiscom(e)}>
                 <span className="glyphicon glyphicon-ok"></span>
               </button>
