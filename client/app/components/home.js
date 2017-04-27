@@ -6,13 +6,15 @@ import UINAVBAR from './ui-nav-bar.js';
 import UISIDEBAR from './ui-side-bar.js';
 import Stackfeed from './stackfeed.js';
 import ErrorBanner from './errorbanner';
+import {saveStack} from '../server';
 
 export default class Home extends React.Component {
     constructor(props){
       super(props);
       this.state = {
         user: this.props.user,
-        possibleStackName: ""
+        possibleStackName: "",
+        quote: randomQuote()
       };
     }
 
@@ -29,8 +31,7 @@ export default class Home extends React.Component {
       var stackName = this.state.possibleStackName.trim();
 
       if (stackName !== "") {
-
-        saveStack(this.state.userId, stackName,this.state.stackId, currentTimeToString());
+        saveStack(this.state.user, stackName, currentTimeToString());
         this.setState({ possibleStackName: ""});
       }
     }
@@ -59,7 +60,7 @@ export default class Home extends React.Component {
                     <div className = "col-md-1"></div>
                     <div className="col-md-10 quote">
                         <h3>INSPIRATIONAL QUOTE OF THE DAY</h3>
-                        <p>{randomQuote()}</p>
+                        <p>{this.state.quote}</p>
                     </div>
                     <div className = "col-md-1"></div>
                     </div>
@@ -68,9 +69,9 @@ export default class Home extends React.Component {
             </div>
 
             <div className="input-group">
-                <input type="text" className="form-control" placeholder="Create New Deck" />
+                <input type="text" className="form-control" placeholder="Create New Deck" onChange={(e) => this.handleNameChange(e)}/>
                 <span className="input-group-btn">
-                <button type="submit" className="btn btn-default" onClick={(e) => this.saveStack(e)}>
+                <button type="submit" className="btn btn-default" onClick={(e) => this.subthisstack(e)}>
                     <span className="glyphicon glyphicon-plus"></span>
                 </button>
                 </span>

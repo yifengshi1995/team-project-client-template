@@ -12,6 +12,7 @@ var database = require('./database.js');
 var readDocument = database.readDocument;
 var writeDocument = database.writeDocument;
 var addDocument = database.addDocument;
+var readDocumentGetCollection = database.readDocumentGetCollection;
 
 /**
  * Get the user ID from a token. Returns -1 (an invalid ID)
@@ -50,19 +51,17 @@ function saveCard(userId, stackId, fTxt, bTxt) {
   return(stackId);
 }
 
-function saveStack(userId, name) {
+function saveStack(userId, name, postDate) {
   var userData = readDocument('users', userId);
-  var stacksArray = readDocument('stacks');
-  var stackData = userData.stacks;
-  stacksArray.push({
-    "_id": stacksArray.length+1,
-    "postDate": currentTimeToString(),
-    "name": name,
-    "cards": []
-  });
-  userData.stacks.push(stackItem.length+1);
-  writeDocument('stacks', stackItem);
-  return(stackId);
+  //var stacksArray = readDocument('stacks', 1);
+  var newStack = {
+      "postDate": postDate,
+      "name": name,
+      "cards": []
+  }
+  newStack = addDocument('stacks', newStack);
+  //userData.stacks.push(stacksArray.length+1);
+  return(newStack);
 }
 
 function getCardsInStack(userId, stackId) {
@@ -106,14 +105,15 @@ app.put('/:userid/createcard/:stackid', function(req, res) {
     }
 });
 
-app.put('/:userid/home', function(req, res) {
+app.post('/:userid/home', function(req, res) {
     var userid = parseInt(req.params.userid, 10);
-    var stackid = parseInt(req.params.stackid,10);
     var body = req.body;
-    var name = body.name;
     var fromUser = getUserIdFromToken(req.get('Authorization'));
     if (userid === fromUser){
-      res.send(saveStack(userid, name));
+        var newStack = saveStack(userid, body.name, body.postDate);
+        res.status(201);
+        res.set('Location', '/home/' + newStack._id);
+        res.send(newStack);
     }else{
       res.status(401).end();
     }

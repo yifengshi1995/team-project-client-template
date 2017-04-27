@@ -1,4 +1,5 @@
 import {readDocument, writeDocument, addDocument} from './database.js';
+import {currentTimeToString} from './util.js';
 
 var token = 'eyJpZCI6NH0=';
 /**
@@ -89,12 +90,10 @@ export function saveCard(userId, stackId, fTxt, bTxt, cb) {
     })
 }
 
-export function saveStack(userId, name, stackID, postDate, cb) {
-    sendXHR('PUT', '/' + userId + '/home/',  {
-        "_id": stackID,
+export function saveStack(userId, name, postDate, cb) {
+    sendXHR('POST', '/' + userId + '/home',  {
         "postDate": postDate,
-        "name": name,
-        "cards": []
+        "name": name
     }, (xhr) =>{
       cb(JSON.parse(xhr.responseText));
     })
