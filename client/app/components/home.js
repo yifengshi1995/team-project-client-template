@@ -53,6 +53,15 @@ export default class Home extends React.Component {
 
             </div>
 
+            <div className="input-group">
+                <input type="text" className="form-control" placeholder="Create New Deck" />
+                <span className="input-group-btn">
+                <button type="submit" className="btn btn-default">
+                    <span className="glyphicon glyphicon-plus"></span>
+                </button>
+                </span>
+            </div>
+
 
                 <h4>Your Stacks</h4>
 
