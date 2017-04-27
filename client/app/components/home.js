@@ -11,14 +11,28 @@ export default class Home extends React.Component {
     constructor(props){
       super(props);
       this.state = {
-        user: this.props.user
+        user: this.props.user,
+        possibleStackName: ""
       };
     }
 
+    handleNameChange(e){
+      this.setState({ possibleStackName: e.target.value });
+    }
     componentDidMount(){
         getUserData(this.props.user, (userData) => {
           this.setState(userData)
         });
+    }
+
+    subthisstack(){
+      var stackName = this.state.possibleStackName.trim();
+
+      if (stackName !== "") {
+
+        saveStack(this.state.userId, stackName,this.state.stackId, currentTimeToString());
+        this.setState({ possibleStackName: ""});
+      }
     }
 
     render() {
@@ -56,7 +70,7 @@ export default class Home extends React.Component {
             <div className="input-group">
                 <input type="text" className="form-control" placeholder="Create New Deck" />
                 <span className="input-group-btn">
-                <button type="submit" className="btn btn-default">
+                <button type="submit" className="btn btn-default" onClick={(e) => this.saveStack(e)}>
                     <span className="glyphicon glyphicon-plus"></span>
                 </button>
                 </span>

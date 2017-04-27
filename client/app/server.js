@@ -89,6 +89,18 @@ export function saveCard(userId, stackId, fTxt, bTxt, cb) {
     })
 }
 
+export function saveStack(userId, name, stackID, postDate, cb) {
+    sendXHR('PUT', '/' + userId + '/home/',  {
+        "_id": stackID,
+        "postDate": postDate,
+        "name": name,
+        "cards": []
+    }, (xhr) =>{
+      cb(JSON.parse(xhr.responseText));
+    })
+}
+
+
 export function getCardsInStack(userId, stackId, cb) {
   sendXHR('GET', '/' + userId + '/grid/' + stackId, undefined, (xhr) =>{
     cb(JSON.parse(xhr.responseText));

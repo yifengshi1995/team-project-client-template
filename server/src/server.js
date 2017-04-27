@@ -50,6 +50,21 @@ function saveCard(userId, stackId, fTxt, bTxt) {
   return(stackId);
 }
 
+function saveStack(userId, name) {
+  var userData = readDocument('users', userId);
+  var stacksArray = readDocument('stacks');
+  var stackData = userData.stacks;
+  stacksArray.push({
+    "_id": stacksArray.length+1,
+    "postDate": currentTimeToString(),
+    "name": name,
+    "cards": []
+  });
+  userData.stacks.push(stackItem.length+1);
+  writeDocument('stacks', stackItem);
+  return(stackId);
+}
+
 function getCardsInStack(userId, stackId) {
   var stack = readDocument('stacks', stackId)
   var cards = stack.cards;
@@ -86,6 +101,19 @@ app.put('/:userid/createcard/:stackid', function(req, res) {
     var fromUser = getUserIdFromToken(req.get('Authorization'));
     if (userid === fromUser){
       res.send(saveCard(userid, stackid, body.frontContent, body.backContent));
+    }else{
+      res.status(401).end();
+    }
+});
+
+app.put('/:userid/home', function(req, res) {
+    var userid = parseInt(req.params.userid, 10);
+    var stackid = parseInt(req.params.stackid,10);
+    var body = req.body;
+    var name = body.name;
+    var fromUser = getUserIdFromToken(req.get('Authorization'));
+    if (userid === fromUser){
+      res.send(saveStack(userid, name));
     }else{
       res.status(401).end();
     }
