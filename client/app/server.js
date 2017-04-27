@@ -101,8 +101,14 @@ export function getUserData(userId, cb){
 }
 
 export function getStacksFromUser(userId, cb){
-  var userData = readDocument('users', userId);
-  var stackData = userData.stacks;
-  stackData = stackData.map((stackId) => readDocument('stacks', stackId));
-  emulateServerReturn(stackData, cb);
+  sendXHR('GET', '/' + userId + '/home', undefined, (xhr) =>{
+    cb(JSON.parse(xhr.responseText));
+  })
 }
+
+// export function getStacksFromUser(userId, cb){
+//   var userData = readDocument('users', userId);
+//   var stackData = userData.stacks;
+//   stackData = stackData.map((stackId) => readDocument('stacks', stackId));
+//   emulateServerReturn(stackData, cb);
+// }

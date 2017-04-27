@@ -56,6 +56,18 @@ function getCardsInStack(userId, stackId) {
   return cards;
 }
 
+function getStacksFromUser(userId){
+  var userData = readDocument('users', userId);
+  var stackData = userData.stacks;
+  stackData = stackData.map((stackId) => readDocument('stacks', stackId));
+  return stackData;
+}
+
+app.get('/:userid/home', function(req, res) {
+  var userid = parseInt(req.params.userid, 10);
+  res.send(getStacksFromUser(userid));
+});
+
 app.get('/:userid/grid/:stackid', function(req, res) {
   var userid = parseInt(req.params.userid, 10);
   var stackid = parseInt(req.params.stackid,10);
@@ -66,9 +78,6 @@ app.get('/:userid/grid/:stackid', function(req, res) {
     res.status(401).end();
   }
 });
-
-
-
 
 app.put('/:userid/createcard/:stackid', function(req, res) {
     var userid = parseInt(req.params.userid, 10);
