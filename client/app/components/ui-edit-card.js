@@ -1,5 +1,6 @@
 import React from 'react';
 import {saveCard} from '../server.js'
+import {Link} from 'react-router';
 import UINAVBAR from './ui-nav-bar.js';
 //import STACKPREIVEWSLIDER from './ui-stack-scroll-menu.js'
 //import EDITCARD from './contentable-edit-car.js'
@@ -28,9 +29,10 @@ export default class UIEditCard extends React.Component {
     if (front !== "" && back !== "") {
 
       saveCard(this.state.userId, this.state.stackId, front, back);
-      this.setState({ frontVal: "",backVal: ""}); 
+      this.setState({ frontVal: "",backVal: ""});
     }
   }
+
   render() {
     return (
       <div>
@@ -72,6 +74,9 @@ export default class UIEditCard extends React.Component {
 
               <button className="btn btn-default" type="button" onClick={(e) => this.subthiscom(e)}>
                 <span className="glyphicon glyphicon-ok"></span>
+              </button>
+              <button className="btn btn-default" type="button">
+                  <Link to={this.state.userId + "/grid/" + this.state.stackId}><span>Back to Deck</span></Link>
               </button>
           </div>
         </div>
