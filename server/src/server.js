@@ -12,7 +12,6 @@ var database = require('./database.js');
 var readDocument = database.readDocument;
 var writeDocument = database.writeDocument;
 var addDocument = database.addDocument;
-var readDocumentGetCollection = database.readDocumentGetCollection;
 
 /**
  * Get the user ID from a token. Returns -1 (an invalid ID)
@@ -66,8 +65,12 @@ function saveStack(userId, name, postDate) {
 
 function getCardsInStack(userId, stackId) {
   var stack = readDocument('stacks', stackId)
-  var cards = stack.cards;
-  return cards;
+  var stackData = {
+      cards: stack.cards,
+      name: stack.name,
+      postDate: stack.postDate
+  }
+  return stackData;
 }
 
 function getStacksFromUser(userId){
