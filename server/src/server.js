@@ -77,6 +77,24 @@ function getStacksFromUser(userId){
   return stackData;
 }
 
+function getUserData(userId){
+  var userData = readDocument('users', userId);
+  return userData;
+}
+
+function saveSettings(userId, editedU, editedD, editedE) {
+  var userData = readDocument('users', userId);
+  console.log(userData);
+  userData.fullName = editedU;
+  userData.description = editedD;
+  userData.email = editedE;
+  writeDocument('users', userData);
+  // var userData2 = readDocument('users', userId);
+  console.log(userData);
+  // return(userId);
+  return(userData);
+}
+
 app.get('/:userid/home', function(req, res) {
   var userid = parseInt(req.params.userid, 10);
   res.send(getStacksFromUser(userid));
@@ -93,6 +111,16 @@ app.get('/:userid/grid/:stackid', function(req, res) {
   }
 });
 
+app.get('/settings/:userid', function(req, res) {
+  var userid = parseInt(req.params.userid, 10);
+  var fromUser = getUserIdFromToken(req.get('Authorization'));
+  if (fromUser === userid){
+    res.send(getUserData(userid));
+  }else{
+    res.status(401).end();
+  }
+});
+
 app.put('/:userid/createcard/:stackid', function(req, res) {
     var userid = parseInt(req.params.userid, 10);
     var stackid = parseInt(req.params.stackid,10);
@@ -100,6 +128,26 @@ app.put('/:userid/createcard/:stackid', function(req, res) {
     var fromUser = getUserIdFromToken(req.get('Authorization'));
     if (userid === fromUser){
       res.send(saveCard(userid, stackid, body.frontContent, body.backContent));
+    }else{
+      res.status(401).end();
+    }
+});
+
+// saves the settings
+app.put('/settings/:userid', function(req, res) {
+    var userid = parseInt(req.params.userid, 10);
+    var userData = readDocument('users', userid); // try
+    var body = req.body;
+    var fromUser = getUserIdFromToken(req.get('Authorization'));
+    if (userid === fromUser){
+      // var updatedSettings = saveSettings(userid, body.fullName, body.description, body.email);
+      userData.fullName = body.fullName; // try
+      userData.description = body.description; // try
+      userData.email = body.email; // try
+      writeDocument('users', userData); // try cry
+      // res.send(updatedSettings);
+      // res.send(saveSettings(userid, req.params.fullName, req.params.description, req.body.email));
+      res.send(saveSettings(userid, body.fullName, body.description, body.email));
     }else{
       res.status(401).end();
     }

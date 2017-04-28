@@ -117,6 +117,25 @@ export function getStacksFromUser(userId, cb){
   })
 }
 
+export function getSettingsData(userId, cb){
+  sendXHR('GET', '/settings/' + userId, undefined, (xhr) =>{ // new
+    cb(JSON.parse(xhr.responseText)); // new
+  })
+}
+
+export function saveSettings(userId, u, d, e, cb) {
+    sendXHR('PUT', '/settings/' + userId, {
+      fullname: u,
+      description: d,
+      email: e
+        // "fullName": u,
+        // "description": d,
+        // "email": e
+    }, (xhr) =>{
+      cb(JSON.parse(xhr.responseText));
+    })
+}
+
 // export function getStacksFromUser(userId, cb){
 //   var userData = readDocument('users', userId);
 //   var stackData = userData.stacks;
