@@ -1,11 +1,14 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
+  "id":"/",
   "type": "object",
   "properties": {
-    "fronttext": {
+    "frontContent": {
+      "id":"frontContent",
       "type": "string"
     },
-    "backtext": {
+    "backContent": {
+      "id":"backContent",
       "type": "string"
     }
   },

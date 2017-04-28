@@ -128,7 +128,7 @@ app.get('/settings/:userid', function(req, res) {
   }
 });
 
-app.put('/:userid/createcard/:stackid',validate({body: CardSchema}), function(req, res) {
+app.put('/:userid/createcard/:stackid', function(req, res) {
     var userid = parseInt(req.params.userid, 10);
     var stackid = parseInt(req.params.stackid,10);
     var body = req.body;
@@ -141,7 +141,7 @@ app.put('/:userid/createcard/:stackid',validate({body: CardSchema}), function(re
 });
 
 // saves the settings
-app.put('/settings/:userid', validate({body: UserSchema}), function(req, res) {
+app.put('/settings/:userid', function(req, res) {
     var userid = parseInt(req.params.userid, 10);
     var userData = readDocument('users', userid); // try
     // console.log(userData);
@@ -161,7 +161,7 @@ app.put('/settings/:userid', validate({body: UserSchema}), function(req, res) {
     }
 });
 
-app.post('/:userid/home', validate({body: StackSchema}),function(req, res) {
+app.post('/:userid/home', function(req, res) {
     var userid = parseInt(req.params.userid, 10);
     var body = req.body;
     var fromUser = getUserIdFromToken(req.get('Authorization'));
