@@ -48,7 +48,7 @@ export default class Grid extends React.Component {
         <div className="row">
           <div className="col-md-12">
               <button type="button" className="btn btn-default add-card-btn">
-                <Link to={this.state.userId + "/createcard/" + this.state.stackId}><span className="glyphicon glyphicon-plus"></span></Link>
+                <Link to={this.state.userId + "/createcard/" + this.state.stackId}><span>+ Add Card</span></Link>
               </button>
           </div>
         </div>

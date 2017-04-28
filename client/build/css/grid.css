@@ -1,5 +1,5 @@
 .cardholder {
-  padding-top: 60px;
+  padding-top: 40px;
   padding-left: 65px;
   padding-bottom: 20px;
 }
@@ -22,18 +22,20 @@
 .card-front {
   position: relative;
   z-index: 1;
-  border: 1px solid black;
+  border: 1px solid #DDD;
+  box-shadow: 0 2px 4px 0 #BBBBBB;
   border-radius: 10px;
-  background-color: #AA0000;
+  background-color: white;
 }
 
 .card-back {
   position: relative;
   top: -182px;
   z-index: -1;
-  border: 1px solid black;
+  border: 1px solid #DDD;
+  box-shadow: 0 2px 4px 0 #BBBBBB;
   border-radius: 10px;
-  background-color: #00AA00;
+  background-color: white;
 }
 
 .card .card-front.card-back-flip {
@@ -91,4 +93,26 @@
 
 .navbar {
   background-color: #2E8B57;
+}
+
+.grid-header {
+    margin-left: 65px;
+    margin-right: 65px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.add-card-btn {
+    margin-left: 65px;
+    margin-top: 10px;
+    height: 50px;
+    width: 120px;
+    border-radius: 10px;
+    left: calc(50% - 125px);
+    position: relative;
+    border: 1px solid #DDD;
+    box-shadow: 0 2px 4px 0 #BBBBBB;
+}
+.add-card-btn span {
+    color: black;
 }
