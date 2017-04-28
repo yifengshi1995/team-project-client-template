@@ -125,12 +125,12 @@ export function getSettingsData(userId, cb){
 
 export function saveSettings(userId, u, d, e, cb) {
     sendXHR('PUT', '/settings/' + userId, {
-      fullname: u,
-      description: d,
-      email: e
-        // "fullName": u,
-        // "description": d,
-        // "email": e
+      // fullName: u,
+      // description: d,
+      // email: e
+        "fullName": u,
+        "description": d,
+        "email": e
     }, (xhr) =>{
       cb(JSON.parse(xhr.responseText));
     })

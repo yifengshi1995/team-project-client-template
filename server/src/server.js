@@ -77,23 +77,23 @@ function getStacksFromUser(userId){
   return stackData;
 }
 
-function getUserData(userId){
+function getUserData(userId){ // for rendering settings
   var userData = readDocument('users', userId);
   return userData;
 }
 
-function saveSettings(userId, editedU, editedD, editedE) {
-  var userData = readDocument('users', userId);
-  console.log(userData);
-  userData.fullName = editedU;
-  userData.description = editedD;
-  userData.email = editedE;
-  writeDocument('users', userData);
-  // var userData2 = readDocument('users', userId);
-  console.log(userData);
-  // return(userId);
-  return(userData);
-}
+// function saveSettings(userId, editedU, editedD, editedE) {
+//   var userData = readDocument('users', userId);
+//   console.log(userData);
+//   "fullName": editedU,
+//   "description": editedD
+//   // userData.fullName = editedU;
+//   // userData.description = editedD;
+//   // userData.email = editedE;
+//   writeDocument('users', userData);
+//   console.log(userData);
+//   return(userData);
+// }
 
 app.get('/:userid/home', function(req, res) {
   var userid = parseInt(req.params.userid, 10);
@@ -137,17 +137,18 @@ app.put('/:userid/createcard/:stackid', function(req, res) {
 app.put('/settings/:userid', function(req, res) {
     var userid = parseInt(req.params.userid, 10);
     var userData = readDocument('users', userid); // try
+    // console.log(userData);
     var body = req.body;
+    // console.log(body);
     var fromUser = getUserIdFromToken(req.get('Authorization'));
     if (userid === fromUser){
-      // var updatedSettings = saveSettings(userid, body.fullName, body.description, body.email);
-      userData.fullName = body.fullName; // try
+      userData.fullName = body.fullname; // try
       userData.description = body.description; // try
       userData.email = body.email; // try
+      // console.log(userData);
       writeDocument('users', userData); // try cry
-      // res.send(updatedSettings);
-      // res.send(saveSettings(userid, req.params.fullName, req.params.description, req.body.email));
-      res.send(saveSettings(userid, body.fullName, body.description, body.email));
+      res.send(getUserData(userid));
+      // res.send(saveSettings(userid, body.fullName, body.description, body.email));
     }else{
       res.status(401).end();
     }

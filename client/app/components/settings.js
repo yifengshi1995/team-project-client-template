@@ -2,7 +2,6 @@ import React from 'react';
 import UINAVBAR from './ui-nav-bar.js';
 import {getSettingsData, saveSettings} from '../server';
 // import {Link} from 'react-router';
-// import {saveSettings} from '../server';
 
 export default class Settings extends React.Component {
 
@@ -12,17 +11,18 @@ export default class Settings extends React.Component {
       userId: this.props.user,
       editedU: "",
       editedD: "",
-      editedE: "",
-      fullName: this.props.user.fullName,
-      description: this.props.user.description,
-      email: this.props.user.email
+      editedE: ""
+      // fullName: this.props.user.fullName,
+      // description: this.props.user.description,
+      // email: this.props.user.email
     };
   }
 
   componentDidMount() {
-    // getSettingsData(this.state.userId, (userData) => {
-    getSettingsData(this.props.user, (userData) => {
+    getSettingsData(this.state.userId, (userData) => {
+    // getSettingsData(this.props.user, (userData) => {
       this.setState(userData);
+      // console.log(userData);
     });
   }
 
@@ -72,18 +72,15 @@ export default class Settings extends React.Component {
     else{
       email = this.state.email;
     }
-    // var fullName = this.state.editedU;
-    // var description = this.state.editedD;
-    // var email = this.state.editedE;
-    saveSettings(this.state.userId, fullName, description, email, (userId) =>
+    saveSettings(this.state.userId, fullName, description, email, (userData) =>
       {
         // saveSettings(this.state.userId, fullName, description, email);
         // console.log(userId);
         // location.reload();
         this.setState({
-          fullName: fullName,
-          description: description,
-          email: email,
+          // fullName: fullName,
+          // description: description,
+          // email: email,
           editedU: "",
           editedD: "",
           editedE: ""
