@@ -7,11 +7,15 @@ var app = express();
 app.use(express.static('../client/build'));
 app.use(bodyParser.text());
 app.use(bodyParser.json());
-
+var validate = require("express-jsonschema").validate;
 var database = require('./database.js');
 var readDocument = database.readDocument;
 var writeDocument = database.writeDocument;
 var addDocument = database.addDocument;
+
+var UserSchema = require('./schemas/user.json');
+var CardSchema = require('./schemas/card.json');
+var StackSchema = require('./schemas/stack.json');
 
 /**
  * Get the user ID from a token. Returns -1 (an invalid ID)
@@ -124,7 +128,7 @@ app.get('/settings/:userid', function(req, res) {
   }
 });
 
-app.put('/:userid/createcard/:stackid', function(req, res) {
+app.put('/:userid/createcard/:stackid',validate({body: CardSchema}), function(req, res) {
     var userid = parseInt(req.params.userid, 10);
     var stackid = parseInt(req.params.stackid,10);
     var body = req.body;
@@ -137,7 +141,7 @@ app.put('/:userid/createcard/:stackid', function(req, res) {
 });
 
 // saves the settings
-app.put('/settings/:userid', function(req, res) {
+app.put('/settings/:userid', validate({body: UserSchema}), function(req, res) {
     var userid = parseInt(req.params.userid, 10);
     var userData = readDocument('users', userid); // try
     // console.log(userData);
@@ -157,7 +161,7 @@ app.put('/settings/:userid', function(req, res) {
     }
 });
 
-app.post('/:userid/home', function(req, res) {
+app.post('/:userid/home', validate({body: StackSchema}),function(req, res) {
     var userid = parseInt(req.params.userid, 10);
     var body = req.body;
     var fromUser = getUserIdFromToken(req.get('Authorization'));
