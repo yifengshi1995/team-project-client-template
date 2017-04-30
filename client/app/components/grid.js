@@ -2,7 +2,7 @@ import React from 'react';
 import Gridmain from './gridmain';
 import Gridmainbar from './gridmainbar';
 import UINAVBAR from './ui-nav-bar';
-import {getCardsInStack} from '../server';
+import {getStackData} from '../server';
 import {Link} from 'react-router';
 import {unixTimeToString} from '../util';
 
@@ -20,11 +20,11 @@ export default class Grid extends React.Component {
   }
 
   componentDidMount() {
-    getCardsInStack(this.state.userId, this.state.stackId, (cardData) => {
+    getStackData(this.state.userId, this.state.stackId, (stackData) => {
       this.setState({
-          cards: cardData.cards,
-          stackName: cardData.name,
-          date: cardData.postDate
+          cards: stackData.cards,
+          stackName: stackData.name,
+          date: stackData.postDate
       });
     });
   }

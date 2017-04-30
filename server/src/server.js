@@ -106,20 +106,6 @@ MongoClient.connect(url, function(err, db){
     return(newStack);
   }
 
-  function getCardsInStack(userId, stackId, callback) {
-    db.collection('stacks').findOne(
-      {_id: stackId},
-      {_id: 0, postDate: 0, name: 0}, function(err, cards){
-        if(err){
-          return callback(err);
-        } else if(cards === null){
-          return callback(null, null);
-        }
-        return callback(null, cards);
-      }
-    );
-  }
-
   function getStacksFromUser(userId, callback){
     db.collection('users').findOne(
       {_id: userId},
@@ -149,6 +135,19 @@ MongoClient.connect(url, function(err, db){
         }
       }
     );
+  }
+
+  function getStackData(userId, stackId, callback) {
+      db.collection('stacks').findOne(
+          {_id: stackId},
+          function(err, stackData) {
+              if(err) {
+                  return callback(err);
+              } else if(stackData === null) {
+                  return callback(null, null);
+              }
+              return callback(null, stackData);
+          });
   }
 
   function getSettingData(userId){ // for rendering settings
@@ -192,13 +191,13 @@ MongoClient.connect(url, function(err, db){
     var stackid = req.params.stackid;
     var fromUser = getUserIdFromToken(req.get('Authorization'));
     if (fromUser === userid){
-      getCardsInStack(new ObjectID(userid), new ObjectID(stackid), function(err, cards){
+      getStackData(new ObjectID(userid), new ObjectID(stackid), function(err, stackData){
         if(err){
           res.status(500).send("Database error: " + err);
-        } else if (cards === null){
+      } else if (stackData === null){
           res.status(400).send("Could not look up cards in stack " + stackid);
         } else {
-          res.send(cards);
+          res.send(stackData);
         }
       });
     }else{
@@ -216,15 +215,30 @@ MongoClient.connect(url, function(err, db){
     }
   });
 
+
+  // Create a card
   app.put('/:userid/createcard/:stackid', function(req, res) {
-      var userid = parseInt(req.params.userid, 10);
-      var stackid = parseInt(req.params.stackid,10);
+      var userid = req.params.userid;
+      var stackid = new ObjectID(req.params.stackid);
       var body = req.body;
       var fromUser = getUserIdFromToken(req.get('Authorization'));
-      if (userid === fromUser){
-        res.send(saveCard(userid, stackid, body.frontContent, body.backContent));
-      }else{
-        res.status(401).end();
+      if (fromUser === userid) {
+        db.collection('stacks').updateOne({ _id: stackid },
+            {
+                $push: {
+                    cards: {
+                        frontContent: body.frontContent,
+                        backContent: body.backContent
+                    }
+                }
+            }, function(err) {
+                if(err){
+                  res.status(500).send("Database error: " + err);
+                }
+            });
+      } else {
+      // Unauthorized.
+      res.status(401).end();
       }
   });
 
