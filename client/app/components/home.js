@@ -21,11 +21,6 @@ export default class Home extends React.Component {
     handleNameChange(e){
       this.setState({ possibleStackName: e.target.value });
     }
-    componentDidMount(){
-        getUserData(this.props.user, (userData) => {
-          this.setState(userData)
-        });
-    }
 
     subthisstack(){
       var stackName = this.state.possibleStackName.trim();

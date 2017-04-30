@@ -16,6 +16,7 @@ var database = require('./database.js');
 var readDocument = database.readDocument;
 var writeDocument = database.writeDocument;
 var addDocument = database.addDocument;
+var getCollection = database.getCollection;
 
 var UserSchema = require('./schemas/user.json');
 var CardSchema = require('./schemas/card.json');
@@ -69,7 +70,7 @@ MongoClient.connect(url, function(err, db){
       var tokenObj = JSON.parse(regularString);
       var id = tokenObj['id'];
       // Check that id is a number.
-      if (typeof id === 'number') {
+      if (typeof id === 'string') {
         return id;
       } else {
         // Not a number. Return -1, an invalid ID.
@@ -105,24 +106,52 @@ MongoClient.connect(url, function(err, db){
     return(newStack);
   }
 
-  function getCardsInStack(userId, stackId) {
-    var stack = readDocument('stacks', stackId)
-    var stackData = {
-        cards: stack.cards,
-        name: stack.name,
-        postDate: stack.postDate
-    }
-    return stackData;
+  function getCardsInStack(userId, stackId, callback) {
+    db.collection('stacks').findOne(
+      {_id: stackId},
+      {_id: 0, postDate: 0, name: 0}, function(err, cards){
+        if(err){
+          return callback(err);
+        } else if(cards === null){
+          return callback(null, null);
+        }
+        return callback(null, cards);
+      }
+    );
   }
 
-  function getStacksFromUser(userId){
-    var userData = readDocument('users', userId);
-    var stackData = userData.stacks;
-    stackData = stackData.map((stackId) => readDocument('stacks', stackId));
-    return stackData;
+  function getStacksFromUser(userId, callback){
+    db.collection('users').findOne(
+      {_id: userId},
+      function(err, userData){
+        if(err){
+          return callback(err);
+        } else if(userData === null){
+          return callback(null, null);
+        }
+
+        var decks = [];
+        for (var i = 0; i < userData.stacks.length; i++){
+          db.collection('stacks').findOne(
+            {_id: (userData.stacks[i])}, function(err, stack){
+              if(err){
+                return callback(err);
+              } else if(stack === null){
+                return callback(null, null);
+              }
+              decks.push(stack);
+              if(decks.length === userData.stacks.length){
+                stackList = decks;
+                callback(null, stackList);
+              }
+            }
+          );
+        }
+      }
+    );
   }
 
-  function getUserData(userId){ // for rendering settings
+  function getSettingData(userId){ // for rendering settings
     var userData = readDocument('users', userId);
     return userData;
   }
@@ -141,18 +170,39 @@ MongoClient.connect(url, function(err, db){
   // }
 
   app.get('/:userid/home', function(req, res) {
-    var userid = parseInt(req.params.userid, 10);
-    res.send(getStacksFromUser(userid));
+    var userid = req.params.userid;
+    var fromUser = getUserIdFromToken(req.get('Authorization'));
+    if (fromUser === userid){
+      getStacksFromUser(new ObjectID(userid), function(err, stacks){
+        if(err){
+          res.status(500).send("Database error: " + err);
+        } else if (stacks === null){
+          res.status(400).send("Could not look up stacks of  user " + userid);
+        } else {
+          res.send(stacks);
+        }
+      });
+    }else{
+      res.status(403).end();
+    }
   });
 
   app.get('/:userid/grid/:stackid', function(req, res) {
-    var userid = parseInt(req.params.userid, 10);
-    var stackid = parseInt(req.params.stackid,10);
+    var userid = req.params.userid;
+    var stackid = req.params.stackid;
     var fromUser = getUserIdFromToken(req.get('Authorization'));
     if (fromUser === userid){
-      res.send(getCardsInStack(userid, stackid));
+      getCardsInStack(new ObjectID(userid), new ObjectID(stackid), function(err, cards){
+        if(err){
+          res.status(500).send("Database error: " + err);
+        } else if (cards === null){
+          res.status(400).send("Could not look up cards in stack " + stackid);
+        } else {
+          res.send(cards);
+        }
+      });
     }else{
-      res.status(401).end();
+      res.status(403).end();
     }
   });
 
@@ -160,7 +210,7 @@ MongoClient.connect(url, function(err, db){
     var userid = parseInt(req.params.userid, 10);
     var fromUser = getUserIdFromToken(req.get('Authorization'));
     if (fromUser === userid){
-      res.send(getUserData(userid));
+      res.send(getSettingData(userid));
     }else{
       res.status(401).end();
     }
@@ -192,7 +242,7 @@ MongoClient.connect(url, function(err, db){
         userData.email = body.email; // try
         // console.log(userData);
         writeDocument('users', userData); // try cry
-        res.send(getUserData(userid));
+        res.send(getSettingData(userid));
         // res.send(saveSettings(userid, body.fullName, body.description, body.email));
       }else{
         res.status(401).end();

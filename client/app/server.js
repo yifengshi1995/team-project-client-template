@@ -106,11 +106,6 @@ export function getCardsInStack(userId, stackId, cb) {
   })
 }
 
-export function getUserData(userId, cb){
-  var userData = readDocument('users',userId);
-  emulateServerReturn(userData, cb);
-}
-
 export function getStacksFromUser(userId, cb){
   sendXHR('GET', '/' + userId + '/home', undefined, (xhr) =>{
     cb(JSON.parse(xhr.responseText));
