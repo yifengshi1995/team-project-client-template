@@ -17,7 +17,7 @@ class App extends React.Component {
 
 class HomePage extends React.Component {
   render() {
-    return <Home user={4}/>;
+    return <Home user={"000000000000000000000004"}/>;
   }
 }
 
@@ -35,7 +35,7 @@ class UIEditCardPage extends React.Component {
 
 class SettingsPage extends React.Component {
   render() {
-    return <Settings user={4} />;
+    return <Settings user={this.props.params.user} />;
   }
 }
 

@@ -2,11 +2,15 @@
 // We should be able to run your server with node src/server.js
 var express = require('express');
 var bodyParser = require('body-parser');
+var mongo_express = require('mongo-express/lib/middleware');
+var mongo_express_config = require('mongo-express/config.default.js');
+var ResetDatabase = require('./resetdatabase');
 
 var app = express();
 app.use(express.static('../client/build'));
 app.use(bodyParser.text());
 app.use(bodyParser.json());
+app.use('/mongo_express', mongo_express(mongo_express_config));
 var validate = require("express-jsonschema").validate;
 var database = require('./database.js');
 var readDocument = database.readDocument;
@@ -178,10 +182,9 @@ app.post('/:userid/home', function(req, res) {
 // Reset database.
 app.post('/resetdb', function(req, res) {
   console.log("Resetting database...");
-  // This is a debug route, so don't do any validation.
-  database.resetDatabase();
-  // res.send() sends an empty response with status code 200
-  res.send();
+  ResetDatabase(db, function() {
+    res.send();
+  });
 });
 
 

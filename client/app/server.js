@@ -1,7 +1,7 @@
 import {readDocument, writeDocument, addDocument} from './database.js';
 import {currentTimeToString} from './util.js';
 
-var token = 'eyJpZCI6NH0=';
+var token = 'eyJpZCI6IjAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwNCJ9';
 /**
  * Properly configure+send an XMLHttpRequest with error handling,
  * authorization token, and other needed properties.
