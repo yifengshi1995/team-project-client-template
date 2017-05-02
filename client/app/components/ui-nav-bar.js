@@ -47,7 +47,7 @@ export default class UINAVBAR extends React.Component {
                   </button>
               </div>
               <div className="btn-group" role="group">
-                <Link to={"/settings/"+this.state.user}>
+                <Link to={"/"+this.state.user+"/settings"}>
                   <button type="button" className="btn btn-default navbar-btn">
                     <span className="glyphicon glyphicon-cog"></span>
                   </button>

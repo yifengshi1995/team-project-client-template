@@ -9,6 +9,7 @@ export default class Settings extends React.Component {
     super(props);
     this.state = {
       userId: this.props.user,
+      // userId: props.user,
       editedU: "",
       editedD: "",
       editedE: ""
@@ -22,17 +23,8 @@ export default class Settings extends React.Component {
     getSettingsData(this.state.userId, (userData) => {
     // getSettingsData(this.props.user, (userData) => {
       this.setState(userData);
-      // console.log(userData);
     });
   }
-
-  // componentWillMount(){
-  //     getUserData(this.props.user, (userData) => { // THIS PART IS NOT GETTING SAVED DATA CORRECTLY???
-  //       // console.log(userData);
-  //       this.setState(userData);
-  //       console.log(userData);
-  //     });
-  // }
 
   handleUsernameChange(e){
     e.preventDefault();
@@ -74,9 +66,6 @@ export default class Settings extends React.Component {
     }
     saveSettings(this.state.userId, fullName, description, email, (userData) =>
       {
-        // saveSettings(this.state.userId, fullName, description, email);
-        // console.log(userId);
-        // location.reload();
         this.setState({
           // fullName: fullName,
           // description: description,

@@ -150,9 +150,19 @@ MongoClient.connect(url, function(err, db){
           });
   }
 
-  function getSettingData(userId){ // for rendering settings
-    var userData = readDocument('users', userId);
-    return userData;
+  function getSettingsData(userId, callback){ // for rendering settings
+    // var userData = readDocument('users', userId); // old code
+    // return userData; // old code
+    db.collection('users').findOne(
+      {_id: userId},
+      function(err, userData){
+        if(err){
+          return callback(err);
+        } else if(userData === null){
+          return callback(null, null);
+        }
+        return callback(null, userData);
+      });
   }
 
   // function saveSettings(userId, editedU, editedD, editedE) {
@@ -205,13 +215,24 @@ MongoClient.connect(url, function(err, db){
     }
   });
 
-  app.get('/settings/:userid', function(req, res) {
-    var userid = parseInt(req.params.userid, 10);
+  // app.get('/settings/:userid', function(req, res) {
+  app.get('/:userid/settings', function(req, res) {
+    var userid = req.params.userid;
     var fromUser = getUserIdFromToken(req.get('Authorization'));
     if (fromUser === userid){
-      res.send(getSettingData(userid));
+      getSettingsData(new ObjectID(userid), function(err, userData){
+        if(err){
+          res.status(500).send("Database error: " + err);
+        } else if (userData === null){
+            res.status(400).send("Could not look up user " + userid);
+          } else {
+            res.send(userData);
+          }
+      });
+      // res.send(getSettingsData(userid));
     }else{
-      res.status(401).end();
+      // res.status(401).end();
+      res.status(403).end();
     }
   });
 
@@ -243,24 +264,33 @@ MongoClient.connect(url, function(err, db){
   });
 
   // saves the settings
-  app.put('/settings/:userid', function(req, res) {
-      var userid = parseInt(req.params.userid, 10);
-      var userData = readDocument('users', userid); // try
-      // console.log(userData);
+  // app.put('/settings/:userid', function(req, res) {
+  app.put('/:userid/settings', function(req, res) {
+      var userid = new ObjectID(req.params.userid);
       var body = req.body;
-      // console.log(body);
-      var fromUser = getUserIdFromToken(req.get('Authorization'));
-      if (userid === fromUser){
-        userData.fullName = body.fullname; // try
-        userData.description = body.description; // try
-        userData.email = body.email; // try
-        // console.log(userData);
-        writeDocument('users', userData); // try cry
-        res.send(getSettingData(userid));
-        // res.send(saveSettings(userid, body.fullName, body.description, body.email));
-      }else{
-        res.status(401).end();
-      }
+      var fromUser = new ObjectID(getUserIdFromToken(req.get('Authorization')));
+
+      db.collection('users').updateOne(
+        {_id: userid
+        // This is how you specify nested fields on the document. ???
+        },
+        { $set:  { "fullName": body.fullName,
+                   "description": body.description,
+                   "email": body.email
+                 }
+        },
+        function(err) {
+        if (err) {
+          res.status(500).send("Database error: " + err);
+        }
+      });
+        // Update succeeded! Return the resolved user info.
+        getSettingsData(new ObjectID(userid), function(err, userData) {
+          if (err) {
+            res.status(500).send("Database error: " + err);
+          }
+          res.send(userData);
+        });
   });
 
   app.post('/:userid/home', function(req, res) {
