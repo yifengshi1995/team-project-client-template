@@ -301,6 +301,7 @@ MongoClient.connect(url, function(err, db){
                 if(err){
                   res.status(500).send("Database error: " + err);
                 }
+                res.status(201).send("Success");
             });
       } else {
       // Unauthorized.
