@@ -82,30 +82,6 @@ MongoClient.connect(url, function(err, db){
     }
   }
 
-  function saveCard(userId, stackId, fTxt, bTxt) {
-    var stackItem = readDocument('stacks', stackId);
-    stackItem.cards.push({
-      "frontContent": fTxt,
-      "backContent": bTxt
-    });
-    writeDocument('stacks', stackItem);
-
-    return(stackId);
-  }
-
-  function saveStack(userId, name, postDate) {
-    var userData = readDocument('users', userId);
-    //var stacksArray = readDocument('stacks', 1);
-    var newStack = {
-        "postDate": postDate,
-        "name": name,
-        "cards": []
-    }
-    newStack = addDocument('stacks', newStack);
-    //userData.stacks.push(stacksArray.length+1);
-    return(newStack);
-  }
-
   function getStacksFromUser(userId, callback){
     db.collection('users').findOne(
       {_id: userId},
@@ -127,7 +103,7 @@ MongoClient.connect(url, function(err, db){
               }
               decks.push(stack);
               if(decks.length === userData.stacks.length){
-                stackList = decks;
+                var stackList = decks;
                 callback(null, stackList);
               }
             }
@@ -177,6 +153,75 @@ MongoClient.connect(url, function(err, db){
   //   console.log(userData);
   //   return(userData);
   // }
+
+      function createStack(user, name, callback) {
+       // Get the current UNIX time.
+       var time = new Date().getTime();
+       // The new status update. The database will assign the ID for us.
+       var newStack = {
+           "postDate": time,
+           "name": name,
+           "cards": []
+       }
+
+       // Add the status update to the database.
+       db.collection('stacks').insertOne(newStack, function(err, result) {
+         if (err) {
+           return callback(err);
+         }
+         // Unlike the mock database, MongoDB does not return the newly added object
+         // with the _id set.
+         // Attach the new feed item's ID to the newStatusUpdate object. We will
+         // return this object to the client when we are done.
+         // (When performing an insert operation, result.insertedId contains the new
+         // document's ID.)
+         newStack._id = result.insertedId;
+
+           // Update the author's feed with the new status update's ID.
+           db.collection('users').updateOne({ _id: new ObjectID(user) },
+             {
+               $push: {stacks: newStack._id}
+             },
+             function(err) {
+               if (err) {
+                 return callback(err);
+               }
+               // Return the new status update to the application.
+               callback(null, newStack);
+             });
+       });
+
+     }
+
+    // Create a stack
+    app.post('/:userid/home', function(req, res) {
+    // If this function runs, `req.body` passed JSON validation!
+    var body = req.body;
+    var fromUser = getUserIdFromToken(req.get('Authorization'));
+
+    // Check if requester is authorized to post this status update.
+    // (The requester must be the author of the update.)
+    if (fromUser === body.userId) {
+      createStack(new ObjectID(fromUser), body.name, function(err, newStack) {
+        if (err) {
+          // A database error happened.
+          // 500: Internal error.
+          res.status(500).send("A database error occurred: " + err);
+        }
+        else {
+          // When POST creates a new resource, we should tell the client about it
+          // in the 'Location' header and use status code 201.
+          res.status(201);
+          //res.set('Location', '/:userid/home');
+            // Send the update!
+          res.send(newStack);
+        }
+      });
+    } else {
+      // 401: Unauthorized.
+      res.status(401).end();
+    }
+    });
 
   app.get('/:userid/home', function(req, res) {
     var userid = req.params.userid;
@@ -293,19 +338,6 @@ MongoClient.connect(url, function(err, db){
         });
   });
 
-  app.post('/:userid/home', function(req, res) {
-      var userid = parseInt(req.params.userid, 10);
-      var body = req.body;
-      var fromUser = getUserIdFromToken(req.get('Authorization'));
-      if (userid === fromUser){
-          var newStack = saveStack(userid, body.name, body.postDate);
-          res.status(201);
-          res.set('Location', '/home/' + newStack._id);
-          res.send(newStack);
-      }else{
-        res.status(401).end();
-      }
-  });
 
   // Reset database.
   app.post('/resetdb', function(req, res) {
