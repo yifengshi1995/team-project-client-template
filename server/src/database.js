@@ -79,7 +79,6 @@ var initialData = {
         // https://en.wikipedia.org/wiki/Unix_time
         "postDate": 1453668480000,
         "name": "dont dont dont dont dont you need somebody to love",
-
       // List of comments on the post
       "cards": [
         {

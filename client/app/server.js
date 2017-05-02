@@ -99,7 +99,14 @@ export function saveStack(userId, name, postDate, cb) {
     })
 }
 
-
+export function createStack(userId, name, cb) {
+    sendXHR('POST', '/' + userId + '/home',  {
+        "userId": userId,
+        "name": name
+    }, (xhr) =>{
+      cb(JSON.parse(xhr.responseText));
+    })
+}
 export function getCardsInStack(userId, stackId, cb) {
   sendXHR('GET', '/' + userId + '/grid/' + stackId, undefined, (xhr) =>{
     cb(JSON.parse(xhr.responseText));
@@ -113,13 +120,15 @@ export function getStacksFromUser(userId, cb){
 }
 
 export function getSettingsData(userId, cb){
-  sendXHR('GET', '/settings/' + userId, undefined, (xhr) =>{ // new
+  // sendXHR('GET', '/settings/' + userId, undefined, (xhr) =>{
+  sendXHR('GET', '/' + userId + '/settings', undefined, (xhr) =>{ // new
     cb(JSON.parse(xhr.responseText)); // new
   })
 }
 
 export function saveSettings(userId, u, d, e, cb) {
-    sendXHR('PUT', '/settings/' + userId, {
+    // sendXHR('PUT', '/settings/' + userId, {
+    sendXHR('PUT', '/' + userId + '/settings', {
       // fullName: u,
       // description: d,
       // email: e

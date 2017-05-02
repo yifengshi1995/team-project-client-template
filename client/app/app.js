@@ -35,7 +35,8 @@ class UIEditCardPage extends React.Component {
 
 class SettingsPage extends React.Component {
   render() {
-    return <Settings user={this.props.params.user} />;
+    // return <Settings user={this.props.params.user} />; WHY DOES THIS NOT WORK
+    return <Settings user={"000000000000000000000004"} />;
   }
 }
 
@@ -44,7 +45,8 @@ ReactDOM.render((
     <Route path="/" component={App}>
       <IndexRoute component={HomePage} />
       <Route path=":user/grid/:stack" component={GridPage} />
-      <Route path="settings/:user" component={SettingsPage} />
+      // <Route path="settings/:user" component={SettingsPage} />
+      <Route path=":user/settings" component={SettingsPage} /> // I'm trying out something I cry hard
       <Route path=":user/createcard/:stack" component={UIEditCardPage} />
       <Route path=":user/home" component={HomePage} />
     </Route>

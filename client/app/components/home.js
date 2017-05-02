@@ -6,7 +6,7 @@ import UINAVBAR from './ui-nav-bar.js';
 import UISIDEBAR from './ui-side-bar.js';
 import Stackfeed from './stackfeed.js';
 import ErrorBanner from './errorbanner';
-import {saveStack} from '../server';
+import {getSettingsData, createStack} from '../server';
 
 export default class Home extends React.Component {
     constructor(props){
@@ -14,7 +14,8 @@ export default class Home extends React.Component {
       this.state = {
         user: this.props.user,
         possibleStackName: "",
-        quote: randomQuote()
+        quote: randomQuote(),
+        userData: ""
       };
     }
 
@@ -26,9 +27,18 @@ export default class Home extends React.Component {
       var stackName = this.state.possibleStackName.trim();
 
       if (stackName !== "") {
-        saveStack(this.state.user, stackName, currentTimeToString());
-        this.setState({ possibleStackName: ""});
+        createStack(this.state.user, stackName, () => {
+            this.setState({ possibleStackName: ""});
+        });
       }
+    }
+
+    componentDidMount() {
+      getSettingsData(this.state.user, (settingsData) => {
+        this.setState({
+            userData: settingsData
+        });
+      });
     }
 
     render() {
@@ -50,7 +60,7 @@ export default class Home extends React.Component {
             <div className="col-md-8 main-home-section">
             <div className="row">
             <div className ="col-md-12 welcome">
-              <h1> Hello {this.state.fullName} </h1>
+              <h1> Hello {this.state.userData.fullName} </h1>
               <h2> Welcome to SmartCards! </h2>
                     <div className = "col-md-1"></div>
                     <div className="col-md-10 quote">
@@ -81,14 +91,15 @@ export default class Home extends React.Component {
                 <div className="col-md-3 right-sidebar">
                     <div className="row profile">
                         <span className="glyphicon glyphicon-user profile-picture"></span>
-                        <p>{this.state.fullName}</p>
+                        <p>{this.state.userData.fullName}</p>
                     </div>
                     <div className="row-stats">
                         <ul>
                           <li>{currentTimeToString()}</li>
-                          <li>Member since: {this.state.memSince}</li>
-                          <li>Smart Stacks: {this.state.numStacks}</li>
-                          <li>Visibility: {this.state.visiblity}</li>
+                          <li>Member since: {this.state.userData.memSince}</li>
+                          <li>Smart Stacks: {this.state.userData.numStacks}</li>
+                          <li>Bio: {this.state.userData.description}</li>
+                          <li>Visibility: {this.state.userData.visiblity}</li>
                         </ul>
                     </div>
                     </div>
